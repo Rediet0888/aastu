@@ -1,9 +1,13 @@
 import React from 'react';
-import NewsComponent from './NewsComponent';
+
+import VerticalNavBarStudent from './VerticalNavBarStudent';
+
 const Student = () => {
   return (
     <div>
-        <NewsComponent />
+      <VerticalNavBarStudent />
+        
+        
     </div>
   )
 }
