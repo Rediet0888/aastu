@@ -1,6 +1,6 @@
 import React from 'react';
 
-import VerticalNavBarStudent from './VerticalNavBarStudent';
+import VerticalNavBarStudent from '../VerticalNavBarStudent';
 
 const Student = () => {
   return (

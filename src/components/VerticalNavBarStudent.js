@@ -15,9 +15,13 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import NewsComponent from './NewsComponent';
 import Grid from '@material-ui/core/Grid';
-import StudentTable from './StudentTable';
+import ForumIcon from '@material-ui/icons/Forum';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
+import Paper from '@material-ui/core/Paper';
+import SomeDisciplineTips from './SomeDisciplineTips';
+
 
 
 const drawerWidth = 240;
@@ -25,7 +29,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        
+
     },
     appBar: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -35,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
-        
+
     },
     drawerPaper: {
         width: drawerWidth,
@@ -70,7 +74,7 @@ export default function PermanentDrawerLeft() {
                             </Typography>
                         </Grid>
                         <Grid xs={2}>
-                            <TextField id="standard-search" label="Search field" type="search"  />
+                            <TextField id="standard-search" label="Search field" type="search" />
                         </Grid>
                     </Grid>
 
@@ -83,15 +87,18 @@ export default function PermanentDrawerLeft() {
                     paper: classes.drawerPaper,
                 }}
                 anchor="left"
-                
+
             >
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {['Profile', 'Notification', 'DisciplineTips', 'Chat'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{[<AccountCircleIcon/>]}</ListItemIcon>
-                            <ListItemText primary={text} />
+                    {[{ name: 'Profile', icon: AccountCircleIcon },
+                    { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'DisciplineTips', icon: EmojiObjectsIcon },
+                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
+                        <ListItem button key={menu.name}>
+                            <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
+                            <ListItemText primary={menu.name} />
                         </ListItem>
                     ))}
                 </List>
@@ -107,20 +114,28 @@ export default function PermanentDrawerLeft() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
+
                 <Grid xs={12} container spacing={3}>
                     {news.map((i) => {
                         return (
                             <Grid item xs={4}>
                                 <NewsComponent />
+
                             </Grid>
+
                         );
+
                     },
-                    <div className='student-table'>
-                    <Grid>
-                        <StudentTable />
-                        </Grid> 
-                     </div>
+
+
                     )}
+                    <Grid item xs={12} >
+                        <Paper className={classes.paper}>
+                            <SomeDisciplineTips />
+                        </Paper>
+                    </Grid>
+                    
+
                 </Grid>
             </main>
         </div>

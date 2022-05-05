@@ -1,5 +1,5 @@
 import React from 'react';
-import VerticalNavBar from './VerticalNavBar';
+import VerticalNavBar from '../VerticalNavBar';
  
 function Admin() {
  const user = {

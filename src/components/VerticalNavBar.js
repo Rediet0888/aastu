@@ -11,10 +11,15 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import NewsComponent from './NewsComponent';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
+import ForumIcon from '@material-ui/icons/Forum';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import Report from './Report';
 import Grid from '@material-ui/core/Grid';
+import { Paper } from '@material-ui/core';
+import ReportTable from './ReportTable';
+
 
 const drawerWidth = 240;
 
@@ -43,19 +48,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PermanentDrawerLeft() {
+export default function VerticalNavBar() {
     const classes = useStyles();
     const news = [
-        {n:'red'}, 
-        {n:'rehd'},
-        {n:'redj'},
+        { n: 'red' },
+        { n: 'rehd' },
+        { n: 'redj' },
     ]
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar  sx={{backgroundColor: 'red'}}>
+                <Toolbar sx={{ backgroundColor: 'red' }}>
                     <Grid container xs={12} alignItems='flex-end'>
                         <Grid xs={10}>
                             <Typography variant="h6" noWrap>
@@ -80,35 +85,44 @@ export default function PermanentDrawerLeft() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                    {[{ name: 'Profile', icon: AccountCircleIcon },
+                    { name: 'Created Case', icon: NotificationsOutlinedIcon },
+                    { name: 'Accepted Case', icon: EmojiObjectsIcon },
+                    { name: 'Rejected Case', icon: EmojiObjectsIcon },
+                    { name: 'StudentList', icon: EmojiObjectsIcon },
+                    { name: 'Add ScholarshipNews', icon: EmojiObjectsIcon },
+                    { name: 'Rules and regulation', icon: EmojiObjectsIcon },
+                    { name: 'Report', icon: EmojiObjectsIcon },
+                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
+                        <ListItem button key={menu.name}>
+                            <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
+                            <ListItemText primary={menu.name} />
                         </ListItem>
                     ))}
                 </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 <Grid xs={12} container spacing={3}>
-                {news.map((i)=>{
-                   return(
-                       <Grid item xs={4}>
-                        <NewsComponent  />
-                        </Grid>
-                   );
-                }
-                
-                )}
+
+                    {news.map((i) => {
+                        return (
+                            <Grid item xs={4}>
+                                <Report />
+                            </Grid>
+
+                        );
+                    }
+
+                    )}
+                    <Grid item xs={12} >
+                        <Paper className={classes.paper}>
+                            <ReportTable />
+                        </Paper>
+                    </Grid>
+
+
                 </Grid>
             </main>
         </div>

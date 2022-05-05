@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Admin from './components/Admin';
-import LoginForm from './components/LoginForm';
-import Student from './components/Student';
+import Admin from './components/pages/Admin';
+import DisciplineTips from './components/pages/DisciplineTips';
+import LoginForm from './components/pages/LoginForm';
+import Student from './components/pages/Student';
+
 
  
 function App() {
@@ -20,6 +22,8 @@ function App() {
 
         </Route>
         <Route path='/Student' element={<Student/>}></Route>
+
+        <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
       </Routes>
       </BrowserRouter>
         
