@@ -1,5 +1,6 @@
 import React from 'react';
 import VerticalNavBar from '../VerticalNavBar';
+
  
 function Admin() {
  const user = {
@@ -10,6 +11,7 @@ function Admin() {
     <div>
       Welcome {user.name}!<br /><br />
       <VerticalNavBar />
+      
     </div>
   );
 }

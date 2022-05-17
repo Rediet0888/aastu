@@ -102,15 +102,7 @@ export default function PermanentDrawerLeft() {
                         </ListItem>
                     ))}
                 </List>
-                <Divider />
-                <List>
-                    {['AASTU', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+                
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />

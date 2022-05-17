@@ -1,38 +1,47 @@
-import React from 'react';
+import { Paper,
+Card,
+Typography,
+CardActionArea,
+CardMedia,
+CardContent,
+Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import React from 'react'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
-    
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-}));
+    maxWidth: 300,
+  }
+});
 
-export default function DisciplineTips() {
+const DisciplineTips = () => {
   const classes = useStyles();
-
+  const disstyle={padding :20,height:'100vh',width:600, margin:"20px auto"}
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <Typography variant="h6" color="inherit">
-             DisciplineTips
-         </Typography>
-        </Toolbar>
-      </AppBar>
-      <Grid>
-          <Paper>
-
-          </Paper>
-      </Grid>
-    </div>
-  );
+    <Grid>
+      <Paper elevation={30} style={disstyle}>
+        <Grid>
+        <Card className={classes.root}>
+        <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/images/plan.jpg"
+          title="Tip1"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Discipline
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque consectetur, rhoncus nulla bibendum, laoreet neque.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+        </Card>
+        </Grid>
+        </Paper>
+    </Grid>
+  )
 }
+
+export default DisciplineTips
