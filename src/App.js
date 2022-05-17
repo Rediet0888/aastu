@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Admin from './components/pages/Admin';
+import AdminStudent from './components/pages/AdminStudent';
+import AdminEmployee from './components/pages/AdminEmployee';
 import DisciplineTips from './components/pages/DisciplineTips';
 import IncidentRegForm from './components/pages/IncidentRegForm';
 import LoginForm from './components/pages/LoginForm';
@@ -15,14 +16,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={ <LoginForm/>}>
-     
-
-        </Route>
-        <Route path='/Admin' element={<Admin/>}>
-      
-
-        </Route>
+        <Route path='/' element={ <LoginForm/>}></Route>
+        <Route path='/AdminStudent' element={<AdminStudent/>}></Route>
+        <Route path='/AdminEmployee' element={<AdminEmployee/>}></Route>
         <Route path='/Student' element={<Student/>}></Route>
 
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>

@@ -11,8 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+
 import NewsComponentEmployee from './NewsComonentEmployee';
 import Grid from '@material-ui/core/Grid';
 import ForumIcon from '@material-ui/icons/Forum';

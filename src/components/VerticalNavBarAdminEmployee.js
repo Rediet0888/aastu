@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function VerticalNavBar() {
+export default function VerticalNavBarAdminEmployee() {
     const classes = useStyles();
     const news = [
         { n: 'red' },
@@ -65,7 +65,7 @@ export default function VerticalNavBar() {
                     <Grid container xs={12} alignItems='flex-end'>
                         <Grid xs={10}>
                             <Typography variant="h6" noWrap>
-                                StudentAdmin
+                                EmployeeAdmin
                             </Typography>
                         </Grid>
                         <Grid xs={2}>
@@ -90,8 +90,8 @@ export default function VerticalNavBar() {
                     { name: 'Created Case', icon: NotificationsOutlinedIcon },
                     { name: 'Accepted Case', icon: EmojiObjectsIcon },
                     { name: 'Rejected Case', icon: EmojiObjectsIcon },
-                    { name: 'StudentList', icon: EmojiObjectsIcon },
-                    { name: 'Add ScholarshipNews', icon: EmojiObjectsIcon },
+                    { name: 'EmployeeList', icon: EmojiObjectsIcon },
+                    { name: 'Add PreferementNews', icon: EmojiObjectsIcon },
                     { name: 'Rules and regulation', icon: EmojiObjectsIcon },
                     { name: 'Report', icon: EmojiObjectsIcon },
                     { name: 'Chat', icon: ForumIcon },].map((menu) => (

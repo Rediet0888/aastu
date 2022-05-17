@@ -9,7 +9,7 @@ function Admin() {
  }
   return (
     <div>
-      Welcome {user.name}!<br /><br />
+    
       <VerticalNavBar />
       
     </div>
