@@ -5,3 +5,13 @@
 .padd60{
     display: flex;
 }
+.date{
+    display: flex;
+}
+.time{
+    display: flex;
+}
+.witness{
+    display: flex;
+    align-content: space-between;
+}

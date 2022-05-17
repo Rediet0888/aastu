@@ -8,14 +8,14 @@ import CaseNameSelect from '../CaseNameSelect'
 
 const IncidentRegForm = () => {
 
-  const ppst={padding :20,height:'100vh',width:600, margin:"20px auto"}
+  const ppst={padding :20,height:'150vh',width:750, margin:"20px auto"}
   return(
      <Grid >
       <Paper elevation={20} style={ppst}>
         <Grid align='center'>
       <h1>AASTU Disciplinary Incicdents Registration Form</h1>
             </Grid>
-            <Grid>
+            <Grid >
            <h4>
              Accuser
         </h4>
@@ -43,10 +43,39 @@ const IncidentRegForm = () => {
           placeholder="Placeholder"
            multiline
          variant="filled"
-      />
+      /></Grid>
+      <Grid className='date'>
        <Typography>Date</Typography>
+       <TextField id="standard-basic" label="On What Day?" variant="standard" />
+       </Grid>
+       <Grid className='time'>
+       <Typography>Time</Typography>
+       <TextField id="standard-basic" label="At what time?" variant="standard" />
+       </Grid>
+         <Typography>Witness</Typography>
+         <div className='witness'>
+           <Grid >
+             <Typography>Witness1</Typography>
+             <TextField id="standard-basic" label="ID" variant="standard" /><br />
+             <TextField id="standard-basic" label="Email" variant="standard" /><br />
+             <TextField id="standard-basic" label="Verification" variant="standard" />
+           </Grid>
+           <Grid >
+             <Typography>Witness2</Typography>
+             <TextField id="standard-basic" label="ID" variant="standard" /><br />
+             <TextField id="standard-basic" label="Email" variant="standard" /><br />
+             <TextField id="standard-basic" label="Verification" variant="standard" />
+           </Grid>
+           <Grid >
+             <Typography>Witness3</Typography>
+             <TextField id="standard-basic" label="ID" variant="standard" /><br />
+             <TextField id="standard-basic" label="Email" variant="standard" /><br />
+             <TextField id="standard-basic" label="Verification" variant="standard" />
+           </Grid>
+           
+           
+           </div>   
          
-         </Grid>   
        </Paper>
      </Grid>
   )
