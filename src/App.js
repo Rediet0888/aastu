@@ -5,6 +5,7 @@ import DisciplineTips from './components/pages/DisciplineTips';
 import IncidentRegForm from './components/pages/IncidentRegForm';
 import LoginForm from './components/pages/LoginForm';
 import Student from './components/pages/Student';
+import Employee from './components/pages/Employee';
 
 
  
@@ -26,6 +27,7 @@ function App() {
 
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
         <Route path='/IncidentRegForm' element={<IncidentRegForm/>}></Route>
+        <Route path='/Employee' element={<Employee/>}></Route>
       </Routes>
       </BrowserRouter>
         
