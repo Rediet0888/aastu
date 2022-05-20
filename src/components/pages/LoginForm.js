@@ -3,14 +3,18 @@ import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@materia
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-// import logo from '../../images/logo';
+
 const LoginForm=()=>{
 
     const paperStyle={padding :20,height:'60vh',width:280, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'8px 0'}
+    const login={backgroundImage:`url( "/images/plan.jpg")`,
+   
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',}
     return(
-        <Grid>
+        <Grid style={login}>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
                      <Avatar style={avatarStyle}><img src='/images/logo.jpg' alt=' ' width='40px'/></Avatar>

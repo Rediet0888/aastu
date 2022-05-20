@@ -43,7 +43,8 @@ const IncidentRegForm = () => {
           placeholder="Placeholder"
            multiline
          variant="filled"
-      /></Grid>
+      />
+      </Grid>
       <Grid className='date'>
        <Typography>Date</Typography>
        <TextField id="standard-basic" label="On What Day?" variant="standard" />
