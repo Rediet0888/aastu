@@ -21,6 +21,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import Paper from '@material-ui/core/Paper';
 import SomeDisciplineTips from './SomeDisciplineTips';
+import { Link } from 'react-router-dom';
 
 
 
@@ -96,10 +97,11 @@ export default function PermanentDrawerLeft() {
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
                     { name: 'Chat', icon: ForumIcon },].map((menu) => (
-                        <ListItem button key={menu.name}>
+                        <Link to={menu.name}>   <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />
                         </ListItem>
+                        </Link>
                     ))}
                 </List>
                 

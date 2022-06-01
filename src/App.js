@@ -23,8 +23,8 @@ function App() {
         <Route path='/' element={ <LoginForm/>}></Route>
         <Route path='/AdminStudent' element={<AdminStudent/>}></Route>
         <Route path='/AdminEmployee' element={<AdminEmployee/>}></Route>
-        <Route path='/Student' element={<Student/>}></Route>
-
+        <Route path='Student' element={<Student/>}/>
+        <Route path='Student/profile' element={<DisciplineTips/>}/>
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
         <Route path='/IncidentRegForm' element={<IncidentRegForm/>}></Route>
         <Route path='/ScheduleHearing' element={<ScheduleHearing/>}></Route>
