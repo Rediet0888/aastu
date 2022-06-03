@@ -1,41 +1,49 @@
 import React from 'react';
 import {Grid, Typography, Paper, TextField, Button} from "@material-ui/core"
+import '../RegisterRulesRegu.css'
 
 const RegisterRulesRegu = () => {
 
-    const regrules={padding: 20, height: '80vh', width: 300, margin: "20px auto"}
+    const regrules={padding: 20, height: '70vh', width: 500, margin: "20px auto"}
   return (
    <Grid>
        <Paper elevation={20} style={regrules}>
            <Grid>
-               <h1>Rules and Regulatuion Registration Form</h1>
+               <h1>Rules Registration Form</h1>
            </Grid>
-           <Grid>
+           <Grid xs={12} className='ruleid'>
+           <Grid xs={3}>
                <Typography>
                    RuleID
-               </Typography>
-               <TextField id="filled-basic" label="RuleID" variant="filled" />
+               </Typography></Grid>
+               <Grid xs={9}>
+               <TextField id="outlined-basic" label="RuleID" variant="outlined" /></Grid>
            </Grid>
-           <Grid>
+           <Grid xs={12} className='rulename'>
+           <Grid xs={3}>
                <Typography>
                    RuleName
-               </Typography>
-               <TextField id="filled-basic" label="RuleName" variant="filled" />
+               </Typography></Grid>
+               <Grid xs={9}>
+               <TextField id="outlined-basic" label="RuleName" variant="outlined" /></Grid>
            </Grid>
-           <Grid>
+           <Grid xs={12} className='ruledes'>
+           <Grid xs={3}>
                <Typography>
                    RuleDescription
-               </Typography>
+               </Typography></Grid>
+               <Grid xs={9}>
                <TextField
-         id="filled-textarea"
+         id="outlined-textarea"
           label="Description"
           placeholder="Placeholder"
            multiline
-         variant="filled"
+         variant="outlined"
       />
+      </Grid>
            </Grid>
-           <Grid>
-           <Button variant="contained">Register</Button>
+           <Grid className='ruleregbutton'>
+           <Button variant="contained" color='primary'>Register</Button>
            </Grid>
        </Paper>
    </Grid>

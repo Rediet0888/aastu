@@ -2,6 +2,7 @@ import { Typography,Grid,Paper,TextField,Button } from '@material-ui/core'
 
 import React from 'react'
 import RegStudEmpSelect from '../RegStudEmpSelect'
+import '../RegisterStudEmplo.css'
 
 const RegisterStudEmplo = () => {
 
@@ -10,26 +11,34 @@ const RegisterStudEmplo = () => {
     <Grid>
         <Paper elevation={20} style={regse}>
             <Grid>
-                <h1>Registration Form</h1>
+                <h1>Registration Form </h1>
             </Grid>
-            <Grid>
-                <Typography>Register</Typography>
-                <RegStudEmpSelect/>
+            <Grid xs={12} className="register">
+                <Grid xs={3}>
+                <Typography>Register</Typography></Grid>
+                <Grid xs={9}>
+                <RegStudEmpSelect/></Grid>
             </Grid>
-            <Grid>
-                <Typography>Name</Typography>
-                <TextField id="filled-basic" label="Name" variant="filled" />
+            <Grid xs={12} className='regname'>
+                <Grid xs={3}>
+                <Typography>Name</Typography></Grid>
+                <Grid xs={9}>
+                <TextField id="outlined-basic" label="Name" variant="outlined" /></Grid>
             </Grid>
-            <Grid>
-                <Typography>ID</Typography>
-                <TextField id="filled-basic" label="ID" variant="filled" />
+            <Grid xs={12} className='regid'>
+            <Grid xs={3} >
+                <Typography>ID</Typography></Grid>
+                <Grid xs={9} >
+                <TextField id="outlined-basic" label="ID" variant="outlined" /></Grid>
             </Grid>
-            <Grid>
-                <Typography>Department</Typography>
-                <TextField id="filled-basic" label="Department" variant="filled" />
+            <Grid xs={12} className='regdep'>
+            <Grid xs={3} >
+                <Typography>Department</Typography></Grid>
+                <Grid xs={9} >
+                <TextField id="outlined-basic" label="Department" variant="outlined" /></Grid>
             </Grid>
-            <Grid>
-            <Button variant="contained">Register</Button>
+            <Grid className='regbutton'>
+            <Button variant="contained" color='primary'>Register</Button>
 
             </Grid>
         </Paper>

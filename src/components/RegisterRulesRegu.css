@@ -1,0 +1,16 @@
+.ruleid{
+    display: flex;
+    padding: 10px;
+}
+.rulename{
+    display: flex;
+    padding: 10px;
+}
+.ruledes{
+    display: flex;
+    padding: 10px;
+}
+.ruleregbutton{
+    display: flex;
+    padding: 10px;
+}

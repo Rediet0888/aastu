@@ -1,0 +1,20 @@
+.register{
+    display: flex;
+    padding: 10px;
+}
+.regname{
+    display: flex;
+    padding: 10px;
+}
+.regid{
+    display: flex;
+    padding: 10px;
+}
+.regdep{
+    display: flex;
+    padding: 10px;
+}
+.regbutton{
+    display: flex;
+    padding: 10px;
+}
