@@ -1,6 +1,7 @@
 import { Grid, Typography,Paper, TextField,Button } from '@material-ui/core'
 import React from 'react'
 import NewsSelect from '../NewsSelect'
+import '../AddSchPreNews.css'
 
 const AddSchPreNews = () => {
     const schpre={padding :20,height:'80vh',width:400, margin:"20px auto"}
@@ -10,30 +11,43 @@ const AddSchPreNews = () => {
             <Grid>
                 <h1>Adding News</h1>
             </Grid>
-            <Grid>
-               <Typography>News</Typography>
+            <Grid className='news' xs={12} >
+                <Grid  xs={2}>
+               <Typography>News</Typography></Grid>
+               <Grid xs={10}>
                <NewsSelect/>
+               </Grid> 
             </Grid>
-            <Grid>
+            <Grid className='newstitle' xs={12}>
+                <Grid xs={2}>
                 <Typography>Title</Typography>
-                <TextField id="standard-basic" label="News Title" variant="standard" /> 
+                </Grid>
+                <Grid xs={10}>
+                <TextField id="outlined-basic" label="News Title" variant="outlined" /> 
+                </Grid>
             </Grid>
-            <Grid>
+            <Grid className='detailnews' xs={12}>
+                <Grid xs={2}>
                 <Typography>Details</Typography>
+                </Grid>
+                <Grid xs={10}>
                 <TextField
-         id="filled-textarea"
+         id="outlined-textarea"
           label="Description of the news"
           placeholder="Placeholder"
            multiline
-         variant="filled"
+         variant="outlined"
       />
+      </Grid>
             </Grid>
-            <Grid>
-                <Typography>Links</Typography>
-                <TextField id='filled-basic' label="Link" variant='filled'/>
+            <Grid className='newslink' xs={12}>
+                <Grid xs={2}>
+                <Typography>Links</Typography></Grid>
+                <Grid xs={10}>
+                <TextField id='outlined-basic' label="Link" variant='outlined'/></Grid>
             </Grid>
-            <Grid>
-            <Button variant="contained">Post</Button>
+            <Grid className='postbutton'>
+            <Button variant="contained" color="primary" >Post</Button>
             </Grid>
         </Paper>
     </Grid>

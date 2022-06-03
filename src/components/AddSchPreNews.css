@@ -1,0 +1,20 @@
+.news{
+    display: flex;
+    padding: 10px;
+}
+.newstitle{
+    display: flex;
+    padding: 10px;
+}
+.newslink{
+    display: flex;
+    padding: 10px;
+}
+.detailnews{
+    display: flex;
+    padding: 10px;
+}
+.postbutton{
+    padding: 10px;
+    margin-block-end: auto;
+}
