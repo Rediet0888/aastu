@@ -1,0 +1,29 @@
+.accuse{
+display: flex;
+}
+
+.nametype{
+    display: flex;
+    margin-right:auto;
+    
+}
+
+.details{
+    display: flex;
+    padding: 20px;
+    margin-right: auto;
+}
+.div{
+    padding: 20px;
+}
+.div1{
+    padding: 15px;
+}
+.button{
+    float:left;
+    padding: 10px;
+    margin-left: 10px;
+}
+.div2{
+    padding: 20px;
+}

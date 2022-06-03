@@ -54,8 +54,9 @@ export default function VerticalNavBar() {
     const news = [
         { n: 'red' },
         { n: 'rehd' },
-        { n: 'redj' },
-    ]
+        { n: 'redj' },]
+        
+    
 
     return (
         <div className={classes.root}>

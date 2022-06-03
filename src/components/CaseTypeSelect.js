@@ -1,51 +1,64 @@
 
-
 import React from 'react';
-import '../App.css';
-import { getType } from './dataService';
-import {
-  Select,
-  MenuItem,
-} from '@material-ui/core';
-import Typography  from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
-export default class SimpleSelect extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-      data: getType(),
-      selected: 'IN'
+const useStyles = makeStyles((theme) => ({
+  button: {
+    display: 'block',
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+}));
 
-     };
+export default function CaseTypeSelect() {
+  const classes = useStyles();
+  const [type, setType] = React.useState('');
+  const [open, setOpen] = React.useState(false);
 
-     // this.handleChange1 = this.handleChange1.bind(this)
-  }
-
-  handleChange = event => {
-    this.setState({ selected: event.target.value, name: event.target.name});
+  const handleChange = (event) => {
+    setType(event.target.value);
   };
-renderOptions() {
-     return this.state.data.map((dt, i) => {
-      //console.log(dt);
-       return (
-           <MenuItem
-             label="Select a country"
-             value={dt.country_code}
-            key={i} name={dt.country_name}>{dt.country_name}</MenuItem>
-         
-       );
-     });
-    }
-    render() {
-      console.log(this.state.selected);
-      return (
-         <div className="padd50">
-           <Typography>CaseType</Typography>
-           <Select className="width50" value={this.state.selected} onChange={this.handleChange}>
-             {this.renderOptions()}
-           </Select>
 
-         </div>
-      );
-    }
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  return (
+    <div>
+      <Button className={classes.button} onClick={handleOpen}>
+        Case Type
+      </Button>
+      <FormControl  variant='outlined' className={classes.formControl}>
+        <InputLabel id="demo-controlled-open-select-label">Type</InputLabel>
+        <Select
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={type}
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>T1</em>
+          </MenuItem>
+          <MenuItem value={1}>T1</MenuItem>
+          <MenuItem value={2}>T2</MenuItem>
+          <MenuItem value={3}>T3</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
 }
