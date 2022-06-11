@@ -8,16 +8,20 @@ import ScheduleHearing from './components/pages/ScheduleHearing';
 import LoginForm from './components/pages/LoginForm';
 import Student from './components/pages/Student';
 import Employee from './components/pages/Employee';
-import AddSchPreNews from './components/pages/AddSchPreNews';
-import RegisterStudEmplo from './components/pages/RegisterStudEmplo';
-import RegisterRulesRegu from './components/pages/RegisterRulesRegu';
+import AddPrefermentNews from './components/pages/AddPrefermentNews';
+import AddScholarshipNews from './components/pages/AddScholarshipNews';
+import RegisterStudent from './components/pages/RegisterStudent';
+import RegisterEmployee from './components/pages/RegisterEmployee';
 
+import VerticalNavBarAdminEmployee from './components/VerticalNavBarAdminEmployee';
 
  
 function App() {
-
+const role = "sdtu"
   return (
     <div className="App">
+      <VerticalNavBarAdminEmployee/>
+
       <BrowserRouter>
       <Routes>
         <Route path='/' element={ <LoginForm/>}></Route>
@@ -28,9 +32,10 @@ function App() {
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
         <Route path='/IncidentRegForm' element={<IncidentRegForm/>}></Route>
         <Route path='/ScheduleHearing' element={<ScheduleHearing/>}></Route>
-        <Route path='/AddSchPreNews' element={<AddSchPreNews/>}></Route>
-        <Route path='/RegisterStudEmplo' element={<RegisterStudEmplo/>}></Route>
-        <Route path='/RegisterRulesRegu' element={<RegisterRulesRegu/>}></Route>
+        <Route path='/AddPrefermentNews' element={<AddPrefermentNews/>}></Route>
+        <Route path='/AddScholarshipNews' element={<AddScholarshipNews/>}></Route>
+        <Route path='/RegisterStudent' element={<RegisterStudent/>}></Route>
+        <Route path='/RegisterEmployee' element={<RegisterEmployee/>}></Route>
         <Route path='/Employee' element={<Employee/>}></Route>
       </Routes>
       </BrowserRouter>

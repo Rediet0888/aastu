@@ -88,9 +88,8 @@ export default function VerticalNavBar() {
                 <Divider />
                 <List>
                     {[{ name: 'Profile', icon: AccountCircleIcon },
-                    { name: 'Created Case', icon: NotificationsOutlinedIcon },
-                    { name: 'Accepted Case', icon: EmojiObjectsIcon },
-                    { name: 'Rejected Case', icon: EmojiObjectsIcon },
+                    { name: ' Case', icon: NotificationsOutlinedIcon },
+                   
                     { name: 'StudentList', icon: EmojiObjectsIcon },
                     { name: 'Add ScholarshipNews', icon: EmojiObjectsIcon },
                     { name: 'Rules and regulation', icon: EmojiObjectsIcon },

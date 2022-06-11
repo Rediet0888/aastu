@@ -1,0 +1,59 @@
+.register{
+    display: flex;
+    padding: 10px;
+}
+.regname{
+    display: flex;
+    padding: 10px;
+}
+.regid{
+    display: flex;
+    padding: 10px;
+}
+
+.regadd{
+    display: flex;
+    padding: 10px;
+}
+
+.reggender{
+    display: flex;
+    padding: 10px;
+}
+.regbutton{
+    display: flex;
+    padding: 10px;
+}
+.divregid{
+    padding: 10px;
+}
+.divreggender{
+    padding: 10px;
+}
+.divregname{
+    padding: 10px;
+}
+.regemer{
+    display: flex;
+    padding: 10px;
+}
+.divregadd{
+    padding: 10px;
+}
+.divregemer{
+    padding: 10px;
+}
+.regentr{
+    display: flex;
+    padding: 10px;
+}
+.divregentr{
+    padding: 10px;
+}
+.divregyear{
+    padding: 10px;
+}
+.regyear{
+    display: flex;
+    padding: 10px;
+}

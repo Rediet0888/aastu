@@ -1,24 +1,17 @@
 
 import React from 'react'
-import NewsSelect from '../NewsSelect'
 import { Grid, Typography,Paper, TextField,Button } from '@material-ui/core'
-import '../AddSchPreNews.css'
+import '../AddPrefermentNews.css'
 
-const AddSchPreNews = () => {
+const AddPrefermentNews = () => {
     const schpre={padding :20,height:'80vh',width:400, margin:"20px auto"}
   return (
     <Grid>
         <Paper elevation={10} style={schpre}>
             <Grid>
-                <h1>Adding News</h1>
+                <h1>Adding Preferment News</h1>
             </Grid>
-            <Grid className='news' xs={12} >
-                <Grid  xs={2}>
-               <Typography>News</Typography></Grid>
-               <Grid xs={10}>
-               <NewsSelect/>
-               </Grid> 
-            </Grid>
+           
             <Grid className='newstitle' xs={12}>
                 <Grid xs={2}>
                 <Typography>Title</Typography>
@@ -55,4 +48,4 @@ const AddSchPreNews = () => {
   )
 }
 
-export default AddSchPreNews;
+export default AddPrefermentNews;

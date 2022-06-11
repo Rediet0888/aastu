@@ -15,10 +15,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import ForumIcon from '@material-ui/icons/Forum';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import Report from './Report';
+
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
-import ReportTable from './ReportTable';
+
 
 
 const drawerWidth = 240;
@@ -51,11 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function VerticalNavBarAdminEmployee() {
     const classes = useStyles();
-    const news = [
-        { n: 'red' },
-        { n: 'rehd' },
-        { n: 'redj' },
-    ]
 
     return (
         <div className={classes.root}>
@@ -87,9 +82,8 @@ export default function VerticalNavBarAdminEmployee() {
                 <Divider />
                 <List>
                     {[{ name: 'Profile', icon: AccountCircleIcon },
-                    { name: 'Created Case', icon: NotificationsOutlinedIcon },
-                    { name: 'Accepted Case', icon: EmojiObjectsIcon },
-                    { name: 'Rejected Case', icon: EmojiObjectsIcon },
+                    { name: ' Case', icon: NotificationsOutlinedIcon },
+                    
                     { name: 'EmployeeList', icon: EmojiObjectsIcon },
                     { name: 'Add PreferementNews', icon: EmojiObjectsIcon },
                     { name: 'Rules and regulation', icon: EmojiObjectsIcon },
@@ -103,29 +97,7 @@ export default function VerticalNavBarAdminEmployee() {
                 </List>
 
             </Drawer>
-            <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Grid xs={12} container spacing={3}>
-
-                    {news.map((i) => {
-                        return (
-                            <Grid item xs={4}>
-                                <Report />
-                            </Grid>
-
-                        );
-                    }
-
-                    )}
-                    <Grid item xs={12} >
-                        <Paper className={classes.paper}>
-                            <ReportTable />
-                        </Paper>
-                    </Grid>
-
-
-                </Grid>
-            </main>
+            
         </div>
     );
 }
