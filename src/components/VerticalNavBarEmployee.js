@@ -11,7 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import { Link } from 'react-router-dom'
 import NewsComponentEmployee from './NewsComonentEmployee';
 import Grid from '@material-ui/core/Grid';
 import ForumIcon from '@material-ui/icons/Forum';
@@ -21,8 +21,9 @@ import AddIcon from '@material-ui/icons/Add';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import Paper from '@material-ui/core/Paper';
 import SomeDisciplineTips from './SomeDisciplineTips';
-
-
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import DescriptionIcon from '@material-ui/icons/Description';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const drawerWidth = 240;
 
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PermanentDrawerLeft() {
+export default function VerticalNavBarEmployee(props) {
     const classes = useStyles();
     const news = [
         { n: 'red' },
@@ -62,6 +63,35 @@ export default function PermanentDrawerLeft() {
         { n: 'redj' },
     ]
 
+    {/*let rootLinks = []
+    if (props.role === "Employee") {
+        rootLinks = [{ name: 'Dashboard', icon: NotificationsOutlinedIcon },
+        { name: 'Profile', icon: AccountCircleIcon },
+        { name: 'Create Accusation', icon: AddIcon },
+        { name: 'Notification', icon: NotificationsOutlinedIcon },
+        { name: 'DisciplineTips', icon: EmojiObjectsIcon },
+        ]
+    } else if(props.role === "EmployeeAdmin") {
+        rootLinks = [{ name: 'Dashboard', icon: NotificationsOutlinedIcon },
+        { name: 'Profile', icon: AccountCircleIcon },
+        { name: 'Case', icon: NotificationsOutlinedIcon },
+        { name: 'EmployeeList', icon: EmojiObjectsIcon },
+        { name: 'Add PreferementNews', icon: EmojiObjectsIcon },
+        { name: 'Rules and regulation', icon: EmojiObjectsIcon },]
+    }else if(props.role === "Student") {
+        rootLinks = [{ name: 'Dashboard', icon: NotificationsOutlinedIcon },
+        { name: 'Profile', icon: AccountCircleIcon },
+        { name: 'Notification', icon: NotificationsOutlinedIcon },
+        { name: 'DisciplineTips', icon: EmojiObjectsIcon },
+       ]
+    }else if(props.role === "StudentAdmin") {
+        rootLinks = [{ name: 'Dashboard', icon: NotificationsOutlinedIcon },
+        { name: 'Profile', icon: AccountCircleIcon },
+        { name: 'Case', icon: NotificationsOutlinedIcon },
+        { name: 'StudentList', icon: EmojiObjectsIcon },
+        { name: 'Add ScholarshipNews', icon: EmojiObjectsIcon },
+        { name: 'Rules and regulation', icon: EmojiObjectsIcon },]
+    }*/}
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -92,46 +122,50 @@ export default function PermanentDrawerLeft() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {[{ name: 'Profile', icon: AccountCircleIcon },
-                    { name: 'Create Accusation', icon: AddIcon },
+                    {[{ name: 'Dashboard', icon: DashboardIcon },
+                    { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'Create Accusation', icon: NoteAddIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
-                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
-                        <ListItem button key={menu.name}>
-                            <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
-                            <ListItemText primary={menu.name} />
-                        </ListItem>
+                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link to={menu.name} >
+                            <ListItem button key={menu.name}>
+                                <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
+                                <ListItemText primary={menu.name} />
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
                 <Divider />
-               
+
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
+    <div className={classes.toolbar} />
 
-                <Grid xs={12} container spacing={3}>
-                    {news.map((i) => {
-                        return (
-                            <Grid item xs={4}>
-                                <NewsComponentEmployee />
-
-                            </Grid>
-
-                        );
-
-                    },
-
-
-                    )}
-                    <Grid item xs={12} >
-                        <Paper className={classes.paper}>
-                            <SomeDisciplineTips />
-                        </Paper>
-                    </Grid>
-                    
+    <Grid xs={12} container spacing={3}>
+        {news.map((i) => {
+            return (
+                <Grid item xs={4}>
+                    <NewsComponentEmployee />
 
                 </Grid>
-            </main>
+
+            );
+
+        },
+
+
+        )}
+        <Grid item xs={12} >
+            <Paper className={classes.paper}>
+                <SomeDisciplineTips />
+            </Paper>
+        </Grid>
+        
+
+    </Grid>
+</main>
+
         </div>
     );
 }

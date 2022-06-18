@@ -15,12 +15,14 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import ForumIcon from '@material-ui/icons/Forum';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-
-import Grid from '@material-ui/core/Grid';
-import { Paper } from '@material-ui/core';
-
-
-
+import Report from './Report'
+import ReportTable from './ReportTable'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import {Link} from 'react-router-dom'
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import DescriptionIcon from '@material-ui/icons/Description';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +53,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function VerticalNavBarAdminEmployee() {
     const classes = useStyles();
+  const news = [
+      { n: 'red' },
+      { n: 'rehd' },
+      { n: 'redj' },
+  ]
+    
 
     return (
         <div className={classes.root}>
@@ -81,23 +89,44 @@ export default function VerticalNavBarAdminEmployee() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {[{ name: 'Profile', icon: AccountCircleIcon },
-                    { name: ' Case', icon: NotificationsOutlinedIcon },
-                    
-                    { name: 'EmployeeList', icon: EmojiObjectsIcon },
-                    { name: 'Add PreferementNews', icon: EmojiObjectsIcon },
-                    { name: 'Rules and regulation', icon: EmojiObjectsIcon },
-                    { name: 'Report', icon: EmojiObjectsIcon },
-                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
+                    {[ { name: 'Dashboard', icon: DashboardIcon },
+                    { name: 'Profile', icon: AccountCircleIcon },
+                    { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'Add PreferementNews', icon: NoteAddIcon },
+                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />
                         </ListItem>
+                        </Link>
                     ))}
                 </List>
 
             </Drawer>
-            
+            <main className={classes.content}>
+    <div className={classes.toolbar} />
+    <Grid xs={12} container spacing={3}>
+
+        {news.map((i) => {
+            return (
+                <Grid item xs={4}>
+                    <Report />
+                </Grid>
+
+            );
+        }
+
+        )}
+        <Grid item xs={12} >
+            <Paper className={classes.paper}>
+                <ReportTable />
+            </Paper>
+        </Grid>
+
+
+    </Grid>
+</main>
         </div>
     );
 }

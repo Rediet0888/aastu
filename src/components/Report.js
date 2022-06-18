@@ -14,22 +14,21 @@ const useStyles = makeStyles({
   },
 });
 
+
 export default function Report() {
+
+
+
   const classes = useStyles();
   return (
     <React.Fragment>
       <h1>Recent Reports</h1>
       <Typography component="p" variant="h4">
-        5 students
+      5 students
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
         on 15 March, 2019
       </Typography>
-      <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-        view balance
-        </Link>
-      </div>
-    </React.Fragment>
+          </React.Fragment>
   );
 }

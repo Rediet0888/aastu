@@ -22,7 +22,8 @@ import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined'
 import Paper from '@material-ui/core/Paper';
 import SomeDisciplineTips from './SomeDisciplineTips';
 import { Link } from 'react-router-dom';
-
+import DescriptionIcon from '@material-ui/icons/Description';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 
 const drawerWidth = 240;
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PermanentDrawerLeft() {
+export default function VerticalNavBarStudent() {
     const classes = useStyles();
     const news = [
         { n: 'red' },
@@ -66,22 +67,22 @@ export default function PermanentDrawerLeft() {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar sx={{ backgroundColor: 'red' }}>
                     <Grid container xs={12} alignItems='flex-end'>
-                        <Grid xs={10}>
+                        <Grid item xs={10}>
                             <Typography variant="h6" noWrap>
                                 Student
                             </Typography>
                         </Grid>
-                        <Grid xs={2}>
+                        <Grid item xs={2}>
                             <TextField id="standard-search" label="Search field" type="search" />
                         </Grid>
                     </Grid>
 
                 </Toolbar>
-            </AppBar>
-            <Drawer
+            </AppBar> 
+             <Drawer
                 className={classes.drawer}
                 variant="permanent"
                 classes={{
@@ -92,12 +93,17 @@ export default function PermanentDrawerLeft() {
             >
                 <div className={classes.toolbar} />
                 <Divider />
+                
+
+                 <p>sumeya</p>
                 <List>
-                    {[{ name: 'Profile', icon: AccountCircleIcon },
+                    {[{ name: 'Dashboard', icon: DashboardIcon },
+                    { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
-                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
-                        <Link to={menu.name}>   <ListItem button key={menu.name}>
+                    { name: 'Rules and Regulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link to={menu.name} >  
+                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />
                         </ListItem>
@@ -105,33 +111,33 @@ export default function PermanentDrawerLeft() {
                     ))}
                 </List>
                 
-            </Drawer>
+            </Drawer> 
             <main className={classes.content}>
-                <div className={classes.toolbar} />
+    <div className={classes.toolbar} />
 
-                <Grid xs={12} container spacing={3}>
-                    {news.map((i) => {
-                        return (
-                            <Grid item xs={4}>
-                                <NewsComponent />
-
-                            </Grid>
-
-                        );
-
-                    },
-
-
-                    )}
-                    <Grid item xs={12} >
-                        <Paper className={classes.paper}>
-                            <SomeDisciplineTips />
-                        </Paper>
-                    </Grid>
-                    
+    <Grid xs={12} container spacing={3}>
+        {news.map((i) => {
+            return (
+                <Grid item xs={4}>
+                    <NewsComponent />
 
                 </Grid>
-            </main>
+
+            );
+
+        },
+
+
+        )}
+        <Grid item xs={12} >
+            <Paper className={classes.paper}>
+                <SomeDisciplineTips />
+            </Paper>
+        </Grid>
+        
+
+    </Grid>
+</main>
         </div>
     );
 }

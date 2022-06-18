@@ -30,14 +30,12 @@ export default function NewsComponent() {
             Scholarship
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque consectetur, rhoncus nulla bibendum, laoreet neque.
+          Institute of Technology Madras wating for u to join to learn different courses 
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+        
         <Button size="small" color="primary">
           Learn More
         </Button>

@@ -19,6 +19,10 @@ import Report from './Report';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
 import ReportTable from './ReportTable';
+import {Link} from 'react-router-dom'
+import DescriptionIcon from '@material-ui/icons/Description';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 
 const drawerWidth = 240;
@@ -87,45 +91,44 @@ export default function VerticalNavBar() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {[{ name: 'Profile', icon: AccountCircleIcon },
-                    { name: ' Case', icon: NotificationsOutlinedIcon },
-                   
-                    { name: 'StudentList', icon: EmojiObjectsIcon },
-                    { name: 'Add ScholarshipNews', icon: EmojiObjectsIcon },
-                    { name: 'Rules and regulation', icon: EmojiObjectsIcon },
-                    { name: 'Report', icon: EmojiObjectsIcon },
-                    { name: 'Chat', icon: ForumIcon },].map((menu) => (
+                    {[{ name: 'Dashboard', icon: DashboardIcon , to: '/Profile'},
+                    { name: 'Profile', icon: AccountCircleIcon },
+                    { name: ' Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'Add ScholarshipNews', icon: NoteAddIcon },
+                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />
                         </ListItem>
+                        </Link>
                     ))}
                 </List>
 
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Grid xs={12} container spacing={3}>
+    <div className={classes.toolbar} />
+    <Grid xs={12} container spacing={3}>
 
-                    {news.map((i) => {
-                        return (
-                            <Grid item xs={4}>
-                                <Report />
-                            </Grid>
-
-                        );
-                    }
-
-                    )}
-                    <Grid item xs={12} >
-                        <Paper className={classes.paper}>
-                            <ReportTable />
-                        </Paper>
-                    </Grid>
-
-
+        {news.map((i) => {
+            return (
+                <Grid item xs={4}>
+                    <Report />
                 </Grid>
-            </main>
+
+            );
+        }
+
+        )}
+        <Grid item xs={12} >
+            <Paper className={classes.paper}>
+                <ReportTable />
+            </Paper>
+        </Grid>
+
+
+    </Grid>
+</main>
         </div>
     );
 }

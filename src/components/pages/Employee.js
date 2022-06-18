@@ -1,12 +1,12 @@
 import React from 'react';
 
-import VerticalNavBarEmployee from '../VerticalNavBarEmployee';
-
+import EmployeeDashboard from './EmployeeDashboard'
+import VerticalNavBarEmployee from '../VerticalNavBarEmployee'
 const Employee = () => {
   return (
     <div>
-      <VerticalNavBarEmployee />
-        
+       <VerticalNavBarEmployee /> 
+       
         
     </div>
   )

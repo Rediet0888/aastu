@@ -44,7 +44,8 @@ const LoginForm=()=>{
                     <h2>Sign In</h2>
                 </Grid>
                 <TextField value={values.username} name='username' onChange={handleChange} label='Username' placeholder='Enter username' fullWidth required/>
-                {errors.username && <p className="error">{errors.username}</p>}
+                {errors.username && <p className="error">{errors.username}</p>
+                }
                 <TextField value={values.password} name='password' onChange={handleChange} label='Password' placeholder='Enter password' type='password' fullWidth required/>
                 {errors.password && <p className="error">{errors.password}</p>}
                 <FormControlLabel
@@ -58,9 +59,11 @@ const LoginForm=()=>{
                     }
                     label="Remember me"
                  />
-                <Button onClick={handleFormSubmit} type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
+                <Button onClick={handleFormSubmit} type='submit' color='primary' variant="contained" style={btnstyle} fullWidth
+            
+                >Sign in</Button>
                 <Typography >
-                     <Link href="/home" >
+                     <Link href="/" >
                         Forgot password ?
                 </Link>
                 </Typography>

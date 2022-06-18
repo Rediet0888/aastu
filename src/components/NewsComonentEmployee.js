@@ -22,7 +22,7 @@ export default function NewsComponent() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="/images/plan.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -35,9 +35,7 @@ export default function NewsComponent() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+        
         <Button size="small" color="primary">
           Learn More
         </Button>

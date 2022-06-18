@@ -6,13 +6,20 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-  
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import { DeleteOutlineOutlined } from "@mui/icons-material";
+import EditIcon from '@material-ui/icons/Edit';
+import { Grid,Button } from "@material-ui/core";
+import './ReportTable.css'
+
+
 function createData(number, item, qty, price) {
  return { number, item, qty, price };
 }
   
 const rows = [
- createData(1, "Rediet", "by boiling equipments", 2),
+ createData(1, "Rediet", "forbidden equipments", 2),
  createData(2, "Rediet", "caught in dorm of others", 2),
  createData(3, "Ruth", "not cleaning her stuffs", 1),
  createData(4, "Leul", "we donot know what he does", 1),
@@ -20,8 +27,22 @@ const rows = [
 ];
   
 export default function ReportTable() {
+  const tablestudent={padding :20,height:'80vh',width:400, margin:"20px auto"}
  return (
-   <TableContainer component={Paper}>
+  <Grid>
+    
+  <Grid align='left' className="btnade">
+    <Grid >
+      <Button variant="contained" color="primary" ><AddBoxIcon/></Button>
+    </Grid>
+    <Grid >
+      <Button variant="contained" color="primary" ><DeleteOutlineIcon/></Button>
+    </Grid>
+    <Grid >
+      <Button variant="contained" color="primary" ><EditIcon/></Button>
+    </Grid>
+  </Grid>
+   <TableContainer >
      <Table aria-label="simple table">
        <TableHead>
          <TableRow>
@@ -45,5 +66,6 @@ export default function ReportTable() {
        </TableBody>
      </Table>
    </TableContainer>
+   </Grid>
  );
 }

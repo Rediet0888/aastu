@@ -1,0 +1,17 @@
+
+.complaintitle{
+    display: flex;
+    padding: 10px;
+}
+.userid{
+    display: flex;
+    padding: 10px;
+}
+.detailcomplain{
+    display: flex;
+    padding: 10px;
+}
+.btncomplain{
+    padding: 10px;
+    margin-block-end: auto;
+}
