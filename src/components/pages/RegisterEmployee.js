@@ -36,6 +36,26 @@ const [fullNameErrors, setFullNameErrors] = useState({ fullname: '' })
 const [phoneno, setPhoneNo] = useState('')
 const [phoneNoErrors, setPhoneNoErrors] = useState({ phoneno: '' })
 
+const disableButton = 
+    emailErrors?.email ||
+    !email ||
+    cityErrors?.city||
+    !city ||
+    passwordErrors?.password ||
+    !password ||
+    lastNameErrors?.lastname ||
+    !lastname ||
+    fullNameErrors?.fullname ||
+    !fullname ||
+    firstNameErrors?.firstname||
+    !firstname ||
+    middleNameErrors?.middlename ||
+    !middlename ||
+    phoneNoErrors?.phoneno ||
+    !phoneno
+      ? true
+      : false
+
 const handleFirstNameChange = (event) => {
     const {
       target: { value }
@@ -274,8 +294,11 @@ const handlePasswordChange = (event) => {
    
 
             <Grid className='regbutton'>
-            <Button variant="contained" color='primary'>Register</Button>
-
+            <Button variant="contained" color='primary'
+                  disabled={disableButton}
+                  size='large'
+                  type='submit'
+                  onClick={RegisterEmployee}>Register</Button>
             </Grid>
         </Paper>
     </Grid>

@@ -10,26 +10,50 @@ import ChooseUser from '../ChooseUser';
 
 const LoginForm=()=>{
 
-    
-       const [values, setValues] = useState({
-           username: "",
-           password: "",
-       } );
-       const handleChange =(event) =>{
-           setValues({
-               ...values,
-               [event.target.name]: event.target.value,
-           })
-       }
+    const [email, setEmail] = useState('')
+    const [emailErrors, setEmailErrors] = useState({ email: '' })
 
-       const handleFormSubmit = (event) => {
-           setErrors(Validation(values));
-           event.preventDefault();
-       };
+    const [password, setPassword] = useState('')
+const [passwordErrors, setPasswordErrors] = useState({ password: '' })
 
- const [errors, setErrors] = useState({});
- 
-       
+const disableButton = 
+    emailErrors?.email ||
+    !email ||
+    passwordErrors?.password||
+    !password 
+      ? true
+      : false
+const handleEmailChange = (event) => {
+    const {
+      target: { value }
+    } = event
+    setEmailErrors({ email: '' })
+    setEmail(value)
+    const reg = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(value)
+
+    if (!reg) {
+      setEmailErrors({ email: 'Invalid email' })
+    }
+    if (value === '') {
+      setEmailErrors({ email: 'Email field cannot be empty' })
+    }
+  };
+  const handlePasswordChange = (event) => {
+    const {
+      target: { value }
+    } = event
+    setPasswordErrors({ password: '' })
+    setPassword(value)
+    const reg = new RegExp( /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/).test(value)
+
+    if (!reg) {
+      setPasswordErrors({ password: 'Invalid password' })
+    }
+
+    if (value === '') {
+      setPasswordErrors({ password: 'Password field cannot be empty' })
+    }
+  }
 
     const paperStyle={padding :20,height:'60vh',width:280, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
