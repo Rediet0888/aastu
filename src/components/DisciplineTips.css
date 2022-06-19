@@ -1,28 +1,22 @@
 .tips{
     display: flex;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 250px;
     
 }
-.disstyle{
-    padding:30px;
-    height:'100vh';
-    width: 1000px;
-    margin:"40px 40px 40px 40px";
-    justify-content: center;
-}
+
 .tipstwo{
     display: flex;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 250px;
 }
 .tipsthree{
     display: flex;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 250px;
 }
 .tipsfour{
     display: flex;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 250px;
 }

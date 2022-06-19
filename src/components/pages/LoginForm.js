@@ -5,6 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useState } from 'react';
 import Validation from '../Validation';
+import ChooseUser from '../ChooseUser';
 
 
 const LoginForm=()=>{
@@ -43,6 +44,9 @@ const LoginForm=()=>{
                      <Avatar style={avatarStyle}><img src='/images/logo.jpg' alt=' ' width='40px'/></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
+                <Grid>
+                    <ChooseUser/>
+                </Grid>
                 <TextField value={values.username} name='username' onChange={handleChange} label='Username' placeholder='Enter username' fullWidth required/>
                 {errors.username && <p className="error">{errors.username}</p>
                 }
@@ -62,11 +66,7 @@ const LoginForm=()=>{
                 <Button onClick={handleFormSubmit} type='submit' color='primary' variant="contained" style={btnstyle} fullWidth
             
                 >Sign in</Button>
-                <Typography >
-                     <Link href="/" >
-                        Forgot password ?
-                </Link>
-                </Typography>
+               
                 
             </Paper>
         </Grid>

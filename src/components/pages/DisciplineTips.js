@@ -20,15 +20,37 @@ const DisciplineTips = () => {
   
   return (
     <Grid>
-      <Paper elevation={30} className='disstyle'>
+ 
         <Grid xs={12} className='tips'>
         <Grid xs={4} >
         <Card className={classes.root}>
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
+          image={require("../../images/plan.jpg")}
           title="Tip1"
+          component="img"
+        />
+        {/* <img src='../../images/plan.jpg'/> */}
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Discipline
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque consectetur, rhoncus nulla bibendum, laoreet neque.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+        </Card>
+        </Grid>
+        <Grid xs={4} >
+        <Card className={classes.root}>
+        <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={require("../../images/plan.jpg")}
+          title="Tip2"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -46,27 +68,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Discipline
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut neque consectetur, rhoncus nulla bibendum, laoreet neque.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-        </Card>
-        </Grid>
-        <Grid xs={4} >
-        <Card className={classes.root}>
-        <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip3"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -86,8 +90,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip4"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -105,8 +110,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip5"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -124,8 +130,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip6"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -145,8 +152,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip7"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -164,8 +172,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip8"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -183,8 +192,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip9"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -204,8 +214,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip10"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -223,8 +234,9 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip11"
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -242,8 +254,10 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/plan.jpg"
-          title="Tip1"
+          image={require("../../images/plan.jpg")}
+          title="Tip12"
+          component="img"
+          
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -257,7 +271,7 @@ const DisciplineTips = () => {
         </Card>
         </Grid>
         </Grid>
-        </Paper>
+        
     </Grid>
   )
 }

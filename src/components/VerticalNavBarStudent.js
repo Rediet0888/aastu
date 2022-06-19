@@ -94,14 +94,12 @@ export default function VerticalNavBarStudent() {
                 <div className={classes.toolbar} />
                 <Divider />
                 
-
-                 <p>sumeya</p>
                 <List>
                     {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
-                    { name: 'Rules and Regulation', icon: DescriptionIcon },].map((menu) => (
+                    { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
                         <Link to={menu.name} >  
                          <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
