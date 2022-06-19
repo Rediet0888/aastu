@@ -35,6 +35,14 @@ const disableButton =
     !accusationname ||
     judgeOneErrors?.judgeone ||
     !judgeone ||
+    judgeTwoErrors?.judgetwo ||
+    !judgetwo ||
+    judgeThreeErrors?.judgethree ||
+    !judgethree ||
+    judgeFourErrors?.judgefour ||
+    !judgefour ||
+    judgeFiveErrors?.judgefive ||
+    !judgefive ||
     accusedStudentErrors?.accusedstudent ||
     !accusedstudent ||
     accusationIdErrors?.accusationid ||

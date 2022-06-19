@@ -3,32 +3,54 @@ import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@materia
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { useState } from 'react';
-import Validation from '../Validation';
-
+import { useState } from 'react'
 
 const LoginForm=()=>{
 
-    
-       const [values, setValues] = useState({
-           username: "",
-           password: "",
-       } );
-       const handleChange =(event) =>{
-           setValues({
-               ...values,
-               [event.target.name]: event.target.value,
-           })
-       }
+    const [email, setEmail] = useState('')
+    const [emailErrors, setEmailErrors] = useState({ email: '' })
 
-       const handleFormSubmit = (event) => {
-           setErrors(Validation(values));
-           event.preventDefault();
-       };
+    const [password, setPassword] = useState('')
+const [passwordErrors, setPasswordErrors] = useState({ password: '' })
 
- const [errors, setErrors] = useState({});
- 
-       
+const disableButton = 
+    emailErrors?.email ||
+    !email ||
+    passwordErrors?.password||
+    !password 
+      ? true
+      : false
+const handleEmailChange = (event) => {
+    const {
+      target: { value }
+    } = event
+    setEmailErrors({ email: '' })
+    setEmail(value)
+    const reg = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(value)
+
+    if (!reg) {
+      setEmailErrors({ email: 'Invalid email' })
+    }
+    if (value === '') {
+      setEmailErrors({ email: 'Email field cannot be empty' })
+    }
+  };
+  const handlePasswordChange = (event) => {
+    const {
+      target: { value }
+    } = event
+    setPasswordErrors({ password: '' })
+    setPassword(value)
+    const reg = new RegExp( /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/).test(value)
+
+    if (!reg) {
+      setPasswordErrors({ password: 'Invalid password' })
+    }
+
+    if (value === '') {
+      setPasswordErrors({ password: 'Password field cannot be empty' })
+    }
+  }
 
     const paperStyle={padding :20,height:'60vh',width:280, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
@@ -43,30 +65,19 @@ const LoginForm=()=>{
                      <Avatar style={avatarStyle}><img src='/images/logo.jpg' alt=' ' width='40px'/></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
-                <TextField value={values.username} name='username' onChange={handleChange} label='Username' placeholder='Enter username' fullWidth required/>
-                {errors.username && <p className="error">{errors.username}</p>
-                }
-                <TextField value={values.password} name='password' onChange={handleChange} label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                {errors.password && <p className="error">{errors.password}</p>}
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    
-    
-                    }
-                    label="Remember me"
-                 />
-                <Button onClick={handleFormSubmit} type='submit' color='primary' variant="contained" style={btnstyle} fullWidth
+                <TextField error={Boolean(emailErrors?.email)}  helperText={emailErrors?.email} variant="outlined" value={email} onChange={handleEmailChange}  name='email' label='Email' placeholder='Enter email' fullWidth required/>
+                
+                
+                <TextField  error={Boolean(passwordErrors?.password)}  helperText={passwordErrors?.password}  variant="outlined" value={password} onChange={handlePasswordChange} label='Password' placeholder='Enter password' type='password' fullWidth required/>
             
-                >Sign in</Button>
-                <Typography >
-                     <Link href="/" >
-                        Forgot password ?
-                </Link>
-                </Typography>
+        
+                <Button type='submit'  variant="contained" style={btnstyle} fullWidth
+             color='primary'
+            disabled={disableButton}
+            size='large'
+            onClick={LoginForm}>Sign in</Button>
+                
+                
                 
             </Paper>
         </Grid>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import data from '../../data/LocalStudents'
 
 const columns = [
@@ -38,14 +37,14 @@ export default function StudentList() {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <p>sdome</p>
-      <DataGrid
+      {/* <DataGrid
         rows={data}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
-      />
+      /> */}
     </div>
   );
 }
