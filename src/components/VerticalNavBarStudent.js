@@ -100,7 +100,8 @@ export default function VerticalNavBarStudent() {
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
                     { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} >  
+                        <Link to={menu.name} underline="none">
+                              
                          <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />

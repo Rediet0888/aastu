@@ -13,10 +13,9 @@ import NotificationOfStudents from './components/pages/NotificationOfStudents';
 import NotificationOfEmployees from './components/pages/NotificationOfEmployees';
 import NotificationOfStudentAdmin from './components/pages/NotificationOfStudentAdmin';
 import NotificationOfEmployeeAdmin from './components/pages/NotificationOfEmployeeAdmin';
-import StudentList from './components/pages/StudentList';
-import EmployeeList from './components/pages/EmployeeList';
+
 import Employee from './components/pages/Employee';
-import Case from './components/Root';
+
 import AddPrefermentNews from './components/pages/AddPrefermentNews';
 import AddScholarshipNews from './components/pages/AddScholarshipNews';
 import RegisterStudent from './components/pages/RegisterStudent';
@@ -27,12 +26,9 @@ import EmployeeDashboard from './components/pages/EmployeeDashboard';
 import StudentAdminDashboard from './components/pages/StudentAdminDashboard';
 import EmployeeAdminDashboard from './components/pages/EmployeeAdminDashboard';
 
-import { useState } from 'react';
 
-import PermanentDrawerLeft from './components/VerticalNavBarEmployee';
-import VerticalNavBar from './components/VerticalNavBar';
-import Root from './components/Root'
-import VerticalNavBarEmployee from './components/VerticalNavBarEmployee';
+
+
  
 function App() {
 

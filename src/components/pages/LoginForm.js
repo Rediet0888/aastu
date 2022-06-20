@@ -4,12 +4,18 @@ import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@materia
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useState } from 'react';
-import Validation from '../Validation';
+
 import ChooseUser from '../ChooseUser';
+import '../LoginForm.css'
+import { useRoutes } from 'react-router-dom';
 
 
 const LoginForm=()=>{
 
+  {/*const route = () => {
+    const router = useRoutes()
+    router.push("/Student")
+  }*/}
     const [email, setEmail] = useState('')
     const [emailErrors, setEmailErrors] = useState({ email: '' })
 
@@ -62,35 +68,34 @@ const handleEmailChange = (event) => {
    
     
     return(
-        <Grid >
+        <Grid spacing={5}>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
-                     <Avatar style={avatarStyle}><img src='/images/logo.jpg' alt=' ' width='40px'/></Avatar>
+                     <Avatar style={avatarStyle}><img src='/image/logo.jpg' alt=' ' width='40px'/></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
                 <Grid>
                     <ChooseUser/>
                 </Grid>
-                <TextField value={values.username} name='username' onChange={handleChange} label='Username' placeholder='Enter username' fullWidth required/>
-                {errors.username && <p className="error">{errors.username}</p>
-                }
-                <TextField value={values.password} name='password' onChange={handleChange} label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                {errors.password && <p className="error">{errors.password}</p>}
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    
-    
-                    }
-                    label="Remember me"
-                 />
-                <Button onClick={handleFormSubmit} type='submit' color='primary' variant="contained" style={btnstyle} fullWidth
+                <Grid className='user'>
+
+                <TextField error={Boolean(emailErrors?.email)}  helperText={emailErrors?.email} variant="outlined" value={email} onChange={handleEmailChange}  name='email' label='Email' placeholder='Enter email' fullWidth required/>
+                </Grid>
+                
+                <Grid className='pass'>
+
+                <TextField  error={Boolean(passwordErrors?.password)}  helperText={passwordErrors?.password}  variant="outlined" value={password} onChange={handlePasswordChange} label='Password' placeholder='Enter password' type='password' fullWidth required/>
+                </Grid>
             
-                >Sign in</Button>
-               
+        
+                <Button type='submit'  variant="contained" style={btnstyle} fullWidth
+             color='primary'
+            disabled={disableButton}
+            size='large'
+            onClick={LoginForm}
+            >Sign in</Button>
+                
+                
                 
             </Paper>
         </Grid>
