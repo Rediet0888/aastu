@@ -1,21 +1,23 @@
-import { Typography,Button, Grid } from '@material-ui/core'
+import { Typography, Grid,Paper } from '@material-ui/core'
 import React from 'react'
 
 const NotificationOfStudents = () => {
+
+  
+  const notifyStyle={padding :20,height:'30vh',width:200, margin:"20px auto"}
   return (
     <div>
+          <Paper elevation={10} style={notifyStyle}>
       <Grid>
-        New Post 
+        New Message
       </Grid>
-      <Grid>
-        <Typography>Scholarship News</Typography>
-          <p>efsmklghwigjkhzsoghroejhogzjdohbj0eiojdogjojhzroooooooooooooo</p>
-      </Grid>
-      <Grid>
-        <Typography>Accusation News</Typography>
-        <p>u are accused of murdercase </p>
-        <Button variant='outlined' color='primary'>Complain</Button>
-      </Grid>
+     <Grid>
+      <Typography>Date and Time</Typography>
+     </Grid>
+     <Grid>
+      <Typography>Accusation Detail</Typography>
+     </Grid>
+      </Paper>
     </div>
   )
 }

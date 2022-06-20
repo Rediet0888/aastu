@@ -1,30 +1,32 @@
-import { Typography,Button, Grid } from '@material-ui/core'
+import { Typography, Grid,Paper } from '@material-ui/core'
 import React from 'react'
 
-const NotificationOfAdminStudent = () => {
+const NotificationOfStudentAdmin = () => {
+
+  
+  const notifyStyle={padding :20,height:'30vh',width:200, margin:"20px auto"}
   return (
     <div>
+          <Paper elevation={10} style={notifyStyle}>
       <Grid>
         New Post 
       </Grid>
-      <Grid>
-        <Typography>Preferement News</Typography>
-          <p>efsmklghwigjkhzsoghroejhogzjdohbj0eiojdogjojhzroooooooooooooo</p>
-      </Grid>
-      <Grid>
-        <Typography>Accusation Notifications</Typography>
-        <p>someone is accused of murdercase </p>
-        <Grid>
-        <Button variant='outlined' color='primary'>Accept</Button>
-        </Grid>
-       
-      </Grid>
-      <Grid>
-      <Typography>Complain Notifications</Typography>
-      <p>i didn't do this</p>
-        </Grid>
+     <Grid>
+      <Typography>Date and Time</Typography>
+     </Grid>
+     <Grid>
+      <Typography>Accusation </Typography>
+     </Grid>
+     <Grid>
+      <Typography>Accused Person Name </Typography>
+     </Grid>
+     <Grid>
+      <Typography>Accusor Name </Typography>
+     </Grid>
+     
+      </Paper>
     </div>
   )
 }
 
-export default NotificationOfAdminStudent;
+export default NotificationOfStudentAdmin;

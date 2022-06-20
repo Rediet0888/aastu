@@ -23,7 +23,7 @@ import {Link} from 'react-router-dom'
 import DescriptionIcon from '@material-ui/icons/Description';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
-
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 const drawerWidth = 240;
 
@@ -97,8 +97,9 @@ export default function VerticalNavBar() {
                     {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'ScheduleHearing', icon: AccessTimeIcon },
                     { name: 'AddScholarshipNews', icon: NoteAddIcon },
-                    { name: 'Rulesandregulation', icon: DescriptionIcon },].map((menu) => (
+                    { name: 'Rules&regulation', icon: DescriptionIcon },].map((menu) => (
                         <Link   className={classes.noDecoration} to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>

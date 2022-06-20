@@ -23,6 +23,7 @@ import {Link} from 'react-router-dom'
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import DescriptionIcon from '@material-ui/icons/Description';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -95,8 +96,9 @@ export default function VerticalNavBarAdminEmployee() {
                     {[ { name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'ScheduleHearing', icon: AccessTimeIcon },
                     { name: 'AddPrefermentNews', icon: NoteAddIcon },
-                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
+                    { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
                         <Link  className={classes.noDecoration} to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>

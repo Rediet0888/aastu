@@ -24,7 +24,7 @@ import SomeDisciplineTips from './SomeDisciplineTips';
 import { Link } from 'react-router-dom';
 import DescriptionIcon from '@material-ui/icons/Description';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
 const drawerWidth = 240;
 
@@ -101,6 +101,7 @@ export default function VerticalNavBarStudent() {
                     {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'Complain', icon: LiveHelpIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
                     { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
                         <Link className={classes.noDecoration} to={menu.name} underline="none">

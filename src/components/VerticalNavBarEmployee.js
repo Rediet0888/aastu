@@ -24,7 +24,7 @@ import SomeDisciplineTips from './SomeDisciplineTips';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import DescriptionIcon from '@material-ui/icons/Description';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
-
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -129,8 +129,9 @@ export default function VerticalNavBarEmployee(props) {
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'CreateAccusation', icon: NoteAddIcon },
+                    { name: 'Complain', icon: LiveHelpIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
-                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
+                    { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
                         <Link   className={classes.noDecoration} to={menu.name} >
                             <ListItem button key={menu.name}>
                                 <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
