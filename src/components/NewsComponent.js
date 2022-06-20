@@ -41,5 +41,7 @@ export default function NewsComponent() {
         </Button>
       </CardActions>
     </Card>
+
+    
   );
 }

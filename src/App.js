@@ -49,18 +49,18 @@ function App() {
         <Route path='/AdminStudent/Dashboard' element={<StudentAdminDashboard/> }></Route>
         <Route path='/AdminStudent/Profile' element={<Profile/> }></Route>
         <Route path='/AdminStudent/Notification' element={<NotificationOfStudentAdmin/> }></Route>
-        <Route path='/AdminStudent/Add Scholarship News' element={<AddScholarshipNews/> }></Route>
+        <Route path='/AdminStudent/AddScholarshipNews' element={<AddScholarshipNews/> }></Route>
         <Route path='/AdminStudent/Rules and Regulation' element={<Profile/> }></Route>
         <Route path='/AdminEmployee' element={<AdminEmployee/>}></Route>
         <Route path='/AdminEmployee/Dashboard' element={<EmployeeAdminDashboard/>}></Route>
         <Route path='/AdminEmployee/Profile' element={<Profile/>}></Route>
         <Route path='/AdminEmployee/Notification' element={<NotificationOfEmployeeAdmin/> }></Route>
-        <Route path='/AdminEmployee/Add Preferment News' element={<AddPrefermentNews/> }></Route>
-        <Route path='/AdminEmployee/Rules and Regulation' element={<Profile/> }></Route>
+       <Route path='/AdminEmployee/AddPrefermentNews' element={<AddPrefermentNews/>}></Route>
+        <Route path='/AdminEmployee/RulesandRegulation' element={<Profile/> }></Route>
         <Route path='/Student' element={<Student/>}></Route>
         <Route path='/Student/Dashboard' element={<StudentDashboard/> }></Route>
         <Route path='/Student/Profile' element={<Profile/> }></Route>
-        <Route path='/Student/NotificationOfStudents' element={<NotificationOfStudents/> }></Route>
+        <Route path='/Student/Notification' element={<NotificationOfStudents/> }></Route>
         <Route path='/Student/DisciplineTips' element={<DisciplineTips/> }></Route>
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
         <Route path='/IncidentRegForm' element={<IncidentRegForm/>}></Route>

@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
+    noDecoration: {
+        textDecoration: 'none'
+    }
 }));
 
 export default function VerticalNavBar() {
@@ -91,12 +94,12 @@ export default function VerticalNavBar() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {[{ name: 'Dashboard', icon: DashboardIcon , to: '/Profile'},
+                    {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
-                    { name: ' Notification', icon: NotificationsOutlinedIcon },
-                    { name: 'Add ScholarshipNews', icon: NoteAddIcon },
-                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} > 
+                    { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'AddScholarshipNews', icon: NoteAddIcon },
+                    { name: 'Rulesandregulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link   className={classes.noDecoration} to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />

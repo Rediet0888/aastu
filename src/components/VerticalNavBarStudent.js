@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
+    noDecoration: {
+        textDecoration: 'none'
+    }
 }));
 
 export default function VerticalNavBarStudent() {
@@ -100,7 +103,7 @@ export default function VerticalNavBarStudent() {
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
                     { name: 'Rules&Regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} underline="none">
+                        <Link className={classes.noDecoration} to={menu.name} underline="none">
                               
                          <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>

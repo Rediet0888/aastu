@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
+    noDecoration: {
+        textDecoration: 'none'
+    }
 }));
 
 export default function VerticalNavBarEmployee(props) {
@@ -125,10 +128,10 @@ export default function VerticalNavBarEmployee(props) {
                     {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
-                    { name: 'Create Accusation', icon: NoteAddIcon },
+                    { name: 'CreateAccusation', icon: NoteAddIcon },
                     { name: 'DisciplineTips', icon: EmojiObjectsIcon },
                     { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} >
+                        <Link   className={classes.noDecoration} to={menu.name} >
                             <ListItem button key={menu.name}>
                                 <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                                 <ListItemText primary={menu.name} />

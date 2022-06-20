@@ -8,7 +8,7 @@ import { Paper,
   Grid } from '@material-ui/core'
   import { makeStyles } from '@material-ui/core/styles';
   
-  import './DisciplineTips.css'
+  import './SomeDisciplineTips.css'
   
   const useStyles = makeStyles({
     root: {
@@ -24,7 +24,7 @@ const SomeDisciplineTips = () => {
   const classes = useStyles();
 
   return (
-    <Grid xs={12} className='tips'>
+    <Grid xs={12} className='tip1'>
     <Grid xs={4} >
     <Card className={classes.root}>
     <CardActionArea>

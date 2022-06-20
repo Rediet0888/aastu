@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
+    noDecoration: {
+        textDecoration: 'none'
+    }
 }));
 
 export default function VerticalNavBarAdminEmployee() {
@@ -92,9 +95,9 @@ export default function VerticalNavBarAdminEmployee() {
                     {[ { name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
                     { name: 'Notification', icon: NotificationsOutlinedIcon },
-                    { name: 'Add PreferementNews', icon: NoteAddIcon },
+                    { name: 'AddPrefermentNews', icon: NoteAddIcon },
                     { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} > 
+                        <Link  className={classes.noDecoration} to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />

@@ -183,7 +183,7 @@ const handlePasswordChange = (event) => {
   }
 
 
-    const regse={padding: 20, height: '200vh', width:900, margin:"20px auto"}
+    const regse={padding: 20, height: '155vh', width:900, margin:"20px auto"}
   return (
     <Grid>
         <Paper elevation={20} style={regse}>
