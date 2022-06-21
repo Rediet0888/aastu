@@ -5,6 +5,8 @@ import '../AddPrefermentNews.css'
 
 const AddScholarshipNews = () => {
     const schpre={padding :20,height:'80vh',width:400, margin:"20px auto"}
+
+    
   return (
     <Grid>
         <Paper elevation={10} style={schpre}>
