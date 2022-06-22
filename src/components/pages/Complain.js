@@ -15,7 +15,7 @@ const Complain = () => {
                 <Grid xs={2}>
                 <Typography>User Id</Typography></Grid>
                 <Grid xs={10}>
-                <TextField id='outlined-basic' label="Userid" variant='outlined'/></Grid>
+                <TextField id='outlined-basic' label="Userid" variant='outlined' fullWidth/></Grid>
             </Grid>
            
             <Grid className='complaintitle' xs={12}>
@@ -23,7 +23,7 @@ const Complain = () => {
                 <Typography>Title</Typography>
                 </Grid>
                 <Grid xs={10}>
-                <TextField id="outlined-basic" label="News Title" variant="outlined" /> 
+                <TextField id="outlined-basic" label="Complain Title" variant="outlined"  fullWidth/> 
                 </Grid>
             </Grid>
             <Grid className='detailcomplain' xs={12}>
@@ -33,10 +33,11 @@ const Complain = () => {
                 <Grid xs={10}>
                 <TextField
          id="outlined-textarea"
-          label="Description of the news"
+          label="Description of the Complain"
           placeholder="Placeholder"
            multiline
          variant="outlined"
+         fullWidth
       />
       </Grid>
             </Grid>

@@ -23,7 +23,7 @@ import {Link} from 'react-router-dom'
 import DescriptionIcon from '@material-ui/icons/Description';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
-
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 const drawerWidth = 240;
 
@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
+    noDecoration: {
+        textDecoration: 'none'
+    }
 }));
 
 export default function VerticalNavBar() {
@@ -91,12 +94,13 @@ export default function VerticalNavBar() {
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    {[{ name: 'Dashboard', icon: DashboardIcon , to: '/Profile'},
+                    {[{ name: 'Dashboard', icon: DashboardIcon },
                     { name: 'Profile', icon: AccountCircleIcon },
-                    { name: ' Notification', icon: NotificationsOutlinedIcon },
-                    { name: 'Add ScholarshipNews', icon: NoteAddIcon },
-                    { name: 'Rules and regulation', icon: DescriptionIcon },].map((menu) => (
-                        <Link to={menu.name} > 
+                    { name: 'Notification', icon: NotificationsOutlinedIcon },
+                    { name: 'ScheduleHearing', icon: AccessTimeIcon },
+                    { name: 'AddScholarshipNews', icon: NoteAddIcon },
+                    { name: 'Rules&regulation', icon: DescriptionIcon },].map((menu) => (
+                        <Link   className={classes.noDecoration} to={menu.name} > 
                         <ListItem button key={menu.name}>
                             <ListItemIcon>{[<menu.icon />]}</ListItemIcon>
                             <ListItemText primary={menu.name} />
