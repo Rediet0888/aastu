@@ -61,8 +61,11 @@ function StyledRadio(props) {
   );
 }
 
-const IncidentRegForm = () => {
 
+
+
+
+const IncidentRegForm = () => {
 
   const baseURL = 'http://localhost:3000/accusations/create'
 
@@ -132,27 +135,6 @@ const IncidentRegForm = () => {
   //   { n: 'redj' },]
     const classes = useStyles();
 
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
-
   return(
      <Grid >
       <Paper elevation={20} style={ppst}>
@@ -207,19 +189,6 @@ const getBase64 = file => {
         </FormControl> */}
         
 
-            </Grid>
-            <Grid>
-            <form>
-        <input type="file" onChange={onChange} accept="application/pdf"/>
-      </form>
-            
-          
-      
-              <a download="download.pdf" href={pdfData} title='Download pdf document' >test</a>
-              
-
-             
-            
             </Grid>
             <Grid xs={6}>
             {/* <CaseNameSelect/> */}

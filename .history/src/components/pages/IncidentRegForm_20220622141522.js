@@ -1,24 +1,19 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useState, useEffect} from 'react'
-import clsx from 'clsx';
+
+
 import Divider from '@material-ui/core/Divider'
+
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { Typography,TextField,Button } from '@material-ui/core'
+import CaseTypeSelect from '../CaseTypeSelect'
+import CaseNameSelect from '../CaseNameSelect'
 import DatenTime from '../DatenTime'
 import '../IncidentRegForm.css'
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import {  useNavigate } from 'react-router-dom';
-
 
 const drawerWidth = 240;
-const axios = require('axios');
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,47 +41,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StyledRadio(props) {
-  const classes = useStyles();
 
-  return (
-    <Radio
-      className={classes.root}
-      disableRipple
-      color="default"
-      checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
-      icon={<span className={classes.icon} />}
-      {...props}
-    />
-  );
-}
+
 
 const IncidentRegForm = () => {
+  const [accuser, setAccuser] = useState({})
 
+  const [accused, setAccused] = useState({})
 
-  const baseURL = 'http://localhost:3000/accusations/create'
+  const [casedetail, setCaseDetail] = useState({})
 
- const [accusation, setAccusation] = useState({})
- const [accusationerror, setAccusationError] = useState({})
+  const [witness1, setWitness1] = useState({})
 
+  const [witness2, setWitness2] = useState({})
 
-  const [accuser, setAccuser] = useState('')
+  const [witness3, setWitness3] = useState({})
 
-  const [accused, setAccused] = useState(' ')
+  const [casename, setCaseName] = useState({})
 
-  const [casedetail, setCaseDetail] = useState(' ')
+  const [casetype, setCaseType] = useState({})
 
-  const [witness1, setWitness1] = useState(' ')
-
-  const [witness2, setWitness2] = useState(' ')
-
-  const [witness3, setWitness3] = useState(' ')
-
-  const [casename, setCaseName] = useState(' ')
-
-  const [casetype, setCaseType] = useState(' ')
-
-  const navigate = useNavigate();
 
 
   const IncidentRegistration = () =>{
@@ -94,33 +68,15 @@ const IncidentRegForm = () => {
       accusation_title: casename,
       accusation_type: casetype ,
       accusation_detail:casedetail ,
-      accusation_file: "sth",
+      accusation_file:,
       accusor: accuser,
       accused: accused,//accused can be students or employees and it is a foreign  key from student and employee names
       witness1: witness1,
       witness2: witness2 ,
       witness3: witness3,
-      
-     verifiedBy: "Admin"
+      verifiedBy: 
 
     }
-    console.log("accusation", body, )
-    axios.post(baseURL, body,{
-      headers: {
-        "Access-Control-Allow-Headers": "*",
-        "Content-Type": "application/json",
-        "Authorization": "Bearer ${token}",    }    })
-    .then(res => {
-      setAccusation(res.data);
-      if(setAccusation(res.data)){
-        navigate('components/pages/admindashboard')
-      }
-      else{
-        setAccusationError(true)
-        console.log("unable to register the accusation")
-      }
-    });
-  
    
   
   }
@@ -131,27 +87,6 @@ const IncidentRegForm = () => {
   //   { n: 'rehd' },
   //   { n: 'redj' },]
     const classes = useStyles();
-
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
 
   return(
      <Grid >
@@ -166,7 +101,7 @@ const getBase64 = file => {
              Accuser
         </h4>
         {/* <TextField id="outlined-basic" label="Accusor Id" variant="outlined" /><br /><br /> */}
-         <TextField size='small' id="outlined-basic" onChange={e => {
+         <TextField id="outlined-basic" label="Accuser Name" variant="outlined" onChange={e => {
         setAccuser(e.target.value)
       }}
       value={accuser}  />
@@ -176,7 +111,7 @@ const getBase64 = file => {
             Accused
           </h4>
          {/* <TextField id="outlined-basic" label="Id" variant="outlined" /><br /><br /> */}
-       <TextField id="outlined-basic" label="Accused Name " variant="outlined"  onChange={e => {
+       <TextField id="outlined-basic" label="Name" variant="outlined"  onChange={e => {
         setAccused(e.target.value)
       }}
       value={accused}  />
@@ -189,12 +124,8 @@ const getBase64 = file => {
             </h4>
           <Grid xs={12} className="nametype">
             <Grid xs={6}>
-            <TextField id="outlined-basic" label="Case Type" variant="outlined"  onChange={e => {
-        setCaseType(e.target.value)
-      }}
-      value={casetype}  />
             {/* <CaseTypeSelect/> */}
-        {/* <FormControl component="fieldset">
+        <FormControl component="fieldset">
           <FormLabel component="legend">Case Type</FormLabel>
             <RadioGroup onChange={e => {
                       setCaseType(e.target.value)
@@ -204,45 +135,21 @@ const getBase64 = file => {
         <FormControlLabel value="medium-penality" control={<StyledRadio />} label="medium-penality" />
         <FormControlLabel value="high-penality" control={<StyledRadio />} label="high-penality" />
       </RadioGroup>
-        </FormControl> */}
-        
-
-            </Grid>
-            <Grid>
-            <form>
-        <input type="file" onChange={onChange} accept="application/pdf"/>
-      </form>
-            
-          
-      
-              <a download="download.pdf" href={pdfData} title='Download pdf document' >test</a>
-              
-
-             
-            
+        </FormControl>
             </Grid>
             <Grid xs={6}>
             {/* <CaseNameSelect/> */}
-            {/* <FormControl component="fieldset">
+            <FormControl component="fieldset">
           <FormLabel component="legend">Case Name</FormLabel>
             <RadioGroup onChange={e => {
                       setCaseName(e.target.value)
                     }}
-                    value={casename} defaultValue="Untidiness" aria-label="low-penality" name="customized-radios">
-          <FormControlLabel value="Drug abuse" control={<StyledRadio />} label="low-penality" />
-        <FormControlLabel value="Using forbidden equipments" control={<StyledRadio />} label="medium-penality" />
-        <FormControlLabel value="Untidiness" control={<StyledRadio />} label="high-penality" />
-        <FormControlLabel value="Abusing the rights of others" control={<StyledRadio />} label="high-penality" />
-        <FormControlLabel value="Disobeying procters and other staff members" control={<StyledRadio />} label="high-penality" />
-        <FormControlLabel value="Coming late to work" control={<StyledRadio />} label="high-penality" />
-        <FormControlLabel value="Disrespecting coworkers" control={<StyledRadio />} label="high-penality" />
-
+                    value={casename} defaultValue="low-penality" aria-label="low-penality" name="customized-radios">
+          <FormControlLabel value="low-penality" control={<StyledRadio />} label="low-penality" />
+        <FormControlLabel value="medium-penality" control={<StyledRadio />} label="medium-penality" />
+        <FormControlLabel value="high-penality" control={<StyledRadio />} label="high-penality" />
       </RadioGroup>
-        </FormControl> */}
-        <TextField id="outlined-basic" label="Case Name" variant="outlined"  onChange={e => {
-        setCaseName(e.target.value)
-      }}
-      value={casename}  />
+        </FormControl>
             </Grid>
      </Grid>
      <Grid xs={12} className="details">
@@ -250,7 +157,7 @@ const getBase64 = file => {
               <Typography>Case Details</Typography>
           <TextField
          id="outlined-textarea"
-          label="Case Detail"
+          label="Description of Case"
           placeholder="Placeholder"
            multiline
          variant="outlined"
@@ -319,8 +226,8 @@ const getBase64 = file => {
        </Paper>
      </Grid>
   )
+}
 
-                  }
 export default IncidentRegForm;
 
-     
+ 

@@ -102,7 +102,7 @@ export default function VerticalNavBar(props) {
      }
 
     console.log(NavBarItems)
-    return  window.location.pathname !== '/' ? (
+    return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
@@ -168,5 +168,5 @@ export default function VerticalNavBar(props) {
                 </Grid>
                 </main>*/}
         </div>
-    ): <div></div>;
+    );
 }

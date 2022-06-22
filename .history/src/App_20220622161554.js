@@ -36,7 +36,7 @@ import VerticalNavBar from './components/VerticalNavBar';
 function App() {
 
   return (
-    <div className="App" style={{paddingLeft: '300px', paddingTop: '50px'}}>
+    <div className="App">
       {/* <p>sdfj</p> 
     <Root role='Student'/>
     <Router>

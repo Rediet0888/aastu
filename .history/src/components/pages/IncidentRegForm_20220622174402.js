@@ -141,7 +141,7 @@ const onChange = e => {
 };
 
 const onLoad = fileString => {
-  setPdfData(fileString);
+  pdfData= fileString;
   console.log('kkkk', fileString);
 };
 

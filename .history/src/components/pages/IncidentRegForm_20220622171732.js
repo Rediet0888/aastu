@@ -61,8 +61,28 @@ function StyledRadio(props) {
   );
 }
 
-const IncidentRegForm = () => {
+let pdfData= ''
+const onChange = e => {
+  const files = e.target.files;
+  const file = files[0];
+  getBase64(file);
+};
 
+const onLoad = fileString => {
+  pdfData= fileString;
+  console.log('kkkk', fileString);
+};
+
+const getBase64 = file => {
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+    onLoad(reader.result);
+  };
+};
+
+
+const IncidentRegForm = () => {
 
   const baseURL = 'http://localhost:3000/accusations/create'
 
@@ -132,27 +152,6 @@ const IncidentRegForm = () => {
   //   { n: 'redj' },]
     const classes = useStyles();
 
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
-
   return(
      <Grid >
       <Paper elevation={20} style={ppst}>
@@ -210,16 +209,15 @@ const getBase64 = file => {
             </Grid>
             <Grid>
             <form>
-        <input type="file" onChange={onChange} accept="application/pdf"/>
-      </form>
-            
-          
-      
+            <input
+          type="file"
+          // value={selectedFile}
+          // onChange={(e) => setSelectedFile(e.target.files[0])}
+        />
               <a download="download.pdf" href={pdfData} title='Download pdf document' >test</a>
-              
 
              
-            
+            </form>
             </Grid>
             <Grid xs={6}>
             {/* <CaseNameSelect/> */}

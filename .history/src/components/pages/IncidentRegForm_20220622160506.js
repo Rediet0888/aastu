@@ -14,8 +14,53 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import {  useNavigate } from 'react-router-dom';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    display: 'block',
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+}));
+export default function CaseNameSelect() {
+  const classes = useStyles();
+  const [name, setName] = React.useState('');
+  const [open, setOpen] = React.useState(false);
 
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };}
+
+export default function CaseTypeSelect() {
+  const classes = useStyles();
+  const [type, setType] = React.useState('');
+  const [open, setOpen] = React.useState(false);
+
+  const handleChange = (event) => {
+    setType(event.target.value);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 const drawerWidth = 240;
 const axios = require('axios');
 
@@ -61,8 +106,11 @@ function StyledRadio(props) {
   );
 }
 
-const IncidentRegForm = () => {
 
+
+
+
+const IncidentRegForm = () => {
 
   const baseURL = 'http://localhost:3000/accusations/create'
 
@@ -70,21 +118,21 @@ const IncidentRegForm = () => {
  const [accusationerror, setAccusationError] = useState({})
 
 
-  const [accuser, setAccuser] = useState('')
+  const [accuser, setAccuser] = useState({ accuser : ''})
 
-  const [accused, setAccused] = useState(' ')
+  const [accused, setAccused] = useState({acccused : ''})
 
-  const [casedetail, setCaseDetail] = useState(' ')
+  const [casedetail, setCaseDetail] = useState({ casedetail: ''})
 
-  const [witness1, setWitness1] = useState(' ')
+  const [witness1, setWitness1] = useState({ witness1: ''})
 
-  const [witness2, setWitness2] = useState(' ')
+  const [witness2, setWitness2] = useState({ witness2: ''})
 
-  const [witness3, setWitness3] = useState(' ')
+  const [witness3, setWitness3] = useState({witness3: ''})
 
-  const [casename, setCaseName] = useState(' ')
+  const [casename, setCaseName] = useState({casename: ''})
 
-  const [casetype, setCaseType] = useState(' ')
+  const [casetype, setCaseType] = useState({ casetype: ''})
 
   const navigate = useNavigate();
 
@@ -94,14 +142,13 @@ const IncidentRegForm = () => {
       accusation_title: casename,
       accusation_type: casetype ,
       accusation_detail:casedetail ,
-      accusation_file: "sth",
+      // accusation_file:,
       accusor: accuser,
       accused: accused,//accused can be students or employees and it is a foreign  key from student and employee names
       witness1: witness1,
       witness2: witness2 ,
       witness3: witness3,
-      
-     verifiedBy: "Admin"
+      // verifiedBy: 
 
     }
     console.log("accusation", body, )
@@ -132,27 +179,6 @@ const IncidentRegForm = () => {
   //   { n: 'redj' },]
     const classes = useStyles();
 
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
-
   return(
      <Grid >
       <Paper elevation={20} style={ppst}>
@@ -166,7 +192,7 @@ const getBase64 = file => {
              Accuser
         </h4>
         {/* <TextField id="outlined-basic" label="Accusor Id" variant="outlined" /><br /><br /> */}
-         <TextField size='small' id="outlined-basic" onChange={e => {
+         <TextField id="outlined-basic" label="Accuser Name" variant="outlined" onChange={e => {
         setAccuser(e.target.value)
       }}
       value={accuser}  />
@@ -176,7 +202,7 @@ const getBase64 = file => {
             Accused
           </h4>
          {/* <TextField id="outlined-basic" label="Id" variant="outlined" /><br /><br /> */}
-       <TextField id="outlined-basic" label="Accused Name " variant="outlined"  onChange={e => {
+       <TextField id="outlined-basic" label="Name" variant="outlined"  onChange={e => {
         setAccused(e.target.value)
       }}
       value={accused}  />
@@ -189,10 +215,6 @@ const getBase64 = file => {
             </h4>
           <Grid xs={12} className="nametype">
             <Grid xs={6}>
-            <TextField id="outlined-basic" label="Case Type" variant="outlined"  onChange={e => {
-        setCaseType(e.target.value)
-      }}
-      value={casetype}  />
             {/* <CaseTypeSelect/> */}
         {/* <FormControl component="fieldset">
           <FormLabel component="legend">Case Type</FormLabel>
@@ -205,21 +227,31 @@ const getBase64 = file => {
         <FormControlLabel value="high-penality" control={<StyledRadio />} label="high-penality" />
       </RadioGroup>
         </FormControl> */}
-        
+        <div>
+      <Button className={classes.button} onClick={handleOpen}>
+        Case Type
+      </Button>
+      <FormControl  variant='outlined' className={classes.formControl}>
+        <InputLabel id="demo-controlled-open-select-label">Type</InputLabel>
+        <Select
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={type}
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>T1</em>
+          </MenuItem>
+          <MenuItem value={1}>T1</MenuItem>
+          <MenuItem value={2}>T2</MenuItem>
+          <MenuItem value={3}>T3</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
 
-            </Grid>
-            <Grid>
-            <form>
-        <input type="file" onChange={onChange} accept="application/pdf"/>
-      </form>
-            
-          
-      
-              <a download="download.pdf" href={pdfData} title='Download pdf document' >test</a>
-              
-
-             
-            
             </Grid>
             <Grid xs={6}>
             {/* <CaseNameSelect/> */}
@@ -239,29 +271,50 @@ const getBase64 = file => {
 
       </RadioGroup>
         </FormControl> */}
-        <TextField id="outlined-basic" label="Case Name" variant="outlined"  onChange={e => {
-        setCaseName(e.target.value)
-      }}
-      value={casename}  />
             </Grid>
      </Grid>
      <Grid xs={12} className="details">
             <Grid xs={6}>
-              <Typography>Case Details</Typography>
-          <TextField
-         id="outlined-textarea"
-          label="Case Detail"
-          placeholder="Placeholder"
-           multiline
-         variant="outlined"
-         onChange={e => {
-          setCaseDetail(e.target.value)
-        }}
-        value={casedetail}  
-      />
+            <div>
+      <Button className={classes.button} onClick={handleOpen}>
+        Case Name
+      </Button>
+      <FormControl  variant='outlined' className={classes.formControl}>
+        <InputLabel id="demo-controlled-open-select-label">Name</InputLabel>
+        <Select
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={name}
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>Case1</em>
+          </MenuItem>
+          <MenuItem value={1}>Case1</MenuItem>
+          <MenuItem value={2}>Case2</MenuItem>
+          <MenuItem value={3}>Case3</MenuItem>
+        </Select>
+      </FormControl>
+    </div> 
+      
       </Grid>
       <Grid xs={6}>
-       <DatenTime/>
+      <form className={classes.container} noValidate>
+      <TextField
+      variant="outlined"
+        id="datetime-local"
+        label="Accusation Time"
+        type="datetime-local"
+        defaultValue="2017-05-24T10:30"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+    </form>
        </Grid>
        </Grid>
        <Grid className='div1'>
@@ -321,6 +374,7 @@ const getBase64 = file => {
   )
 
                   }
+                
 export default IncidentRegForm;
 
      

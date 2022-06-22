@@ -61,6 +61,7 @@ function StyledRadio(props) {
   );
 }
 
+
 const IncidentRegForm = () => {
 
 
@@ -90,6 +91,27 @@ const IncidentRegForm = () => {
 
 
   const IncidentRegistration = () =>{
+  const [pdfData, setPdfData] = useState('')
+
+  const onChange = e => {
+    const files = e.target.files;
+    const file = files[0];
+    getBase64(file);
+  };
+
+  const onLoad = fileString => {
+    setPdfData(fileString);
+    console.log('kkkk', fileString);
+  };
+
+  const getBase64 = file => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      onLoad(reader.result);
+    };
+  
+
     const body = {
       accusation_title: casename,
       accusation_type: casetype ,
@@ -131,27 +153,6 @@ const IncidentRegForm = () => {
   //   { n: 'rehd' },
   //   { n: 'redj' },]
     const classes = useStyles();
-
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
 
   return(
      <Grid >

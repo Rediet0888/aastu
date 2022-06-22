@@ -57,7 +57,7 @@ const handleAccusationIdChange = (event) => {
     } = event
     setAccusationIdErrors({ accusationid: '' })
     setAccusationId(value)
-    const reg = new RegExp(/^[1-9]\d{0}/).test(value)
+    const reg = new RegExp(/^[1-9]\d{5}/).test(value)
 
     if (!reg) {
       setAccusationIdErrors({ accusationid: 'Invalid ID' })
@@ -184,19 +184,15 @@ const handleJudgeOneChange = (event) => {
 
 
     const handleSubmit = () => {
-        // const data = {
-        //   hearing_type: ,
-        //   date: ,
-        //   starting: ,
-        //   duration: ,
-        //   description: ,
-        //   file: ,
-        //   admin_id: ,
-        //   accusant_id: 
-        //   }
-        //   axios.post('http://localhost:3000/schedules/create', data).then(res => {
-        //     console.log(res.data)
-        //   })
+        const data = {
+            accusationid: accusationid,
+            accusationname: accusationname,
+            accusedstudent: accusedstudent,
+            judgeone: judgeone, 
+          }
+          axios.post('http://localhost:3000/schedules/create', data).then(res => {
+            console.log(res.data)
+          })
     }
     
   return (
@@ -209,13 +205,13 @@ const handleJudgeOneChange = (event) => {
             <Grid className='accuseid' xs={12}>
                 <Grid xs={6}>
                 <Typography>
-                    Hearing Type
+                    Accusation Id
                 </Typography>
                 <TextField id="outlined-basic" label="ID"error={Boolean(accusationIdErrors?.accusationid)}  helperText={accusationIdErrors?.accusationid} variant="outlined" value={accusationid} onChange={handleAccusationIdChange} /> 
             </Grid>
             <Grid xs={6}>
                 <Typography>
-                    Description
+                    Accusation Name
                 </Typography>
                 <TextField id="outlined-basic" label="Name" error={Boolean(accusationNameErrors?.accusationname)}  helperText={accusationNameErrors?.accusationname} variant="outlined" value={accusationname} onChange={handleAccusationNameChange} /> 
             </Grid>
@@ -226,7 +222,7 @@ const handleJudgeOneChange = (event) => {
             <Grid xs={12} className='studname'>
                 <Grid xs={6}>
                 <Typography>
-                   Admin ID
+                    Accused Student 
                 </Typography>
                 <TextField id="outlined-basic" label="StudentName" error={Boolean(accusedStudentErrors?.accusedstudent)}  helperText={accusedStudentErrors?.accusedstudent} variant="outlined" value={accusedstudent} onChange={handleAccusedStudentChange}/> 
             </Grid>
@@ -239,7 +235,7 @@ const handleJudgeOneChange = (event) => {
        </Grid>
             <Grid>
                 <Typography>
-file
+                   Judges
                 </Typography>
                 <Grid className='judge12' xs={12}>
                     <Grid xs={6}>

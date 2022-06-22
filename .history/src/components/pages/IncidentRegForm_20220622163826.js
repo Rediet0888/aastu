@@ -61,8 +61,11 @@ function StyledRadio(props) {
   );
 }
 
-const IncidentRegForm = () => {
 
+
+
+
+const IncidentRegForm = () => {
 
   const baseURL = 'http://localhost:3000/accusations/create'
 
@@ -94,14 +97,13 @@ const IncidentRegForm = () => {
       accusation_title: casename,
       accusation_type: casetype ,
       accusation_detail:casedetail ,
-      accusation_file: "sth",
+      // accusation_file:,
       accusor: accuser,
       accused: accused,//accused can be students or employees and it is a foreign  key from student and employee names
       witness1: witness1,
       witness2: witness2 ,
       witness3: witness3,
-      
-     verifiedBy: "Admin"
+      // verifiedBy: 
 
     }
     console.log("accusation", body, )
@@ -132,27 +134,6 @@ const IncidentRegForm = () => {
   //   { n: 'redj' },]
     const classes = useStyles();
 
-    
-const [pdfData, setPdfData] = useState('')
-const onChange = e => {
-  const files = e.target.files;
-  const file = files[0];
-  getBase64(file);
-};
-
-const onLoad = fileString => {
-  setPdfData(fileString);
-  console.log('kkkk', fileString);
-};
-
-const getBase64 = file => {
-  let reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    onLoad(reader.result);
-  };
-};
-
   return(
      <Grid >
       <Paper elevation={20} style={ppst}>
@@ -166,7 +147,7 @@ const getBase64 = file => {
              Accuser
         </h4>
         {/* <TextField id="outlined-basic" label="Accusor Id" variant="outlined" /><br /><br /> */}
-         <TextField size='small' id="outlined-basic" onChange={e => {
+         <TextField id="outlined-basic" label="Accuser Name" variant="outlined" onChange={e => {
         setAccuser(e.target.value)
       }}
       value={accuser}  />
@@ -207,19 +188,6 @@ const getBase64 = file => {
         </FormControl> */}
         
 
-            </Grid>
-            <Grid>
-            <form>
-        <input type="file" onChange={onChange} accept="application/pdf"/>
-      </form>
-            
-          
-      
-              <a download="download.pdf" href={pdfData} title='Download pdf document' >test</a>
-              
-
-             
-            
             </Grid>
             <Grid xs={6}>
             {/* <CaseNameSelect/> */}

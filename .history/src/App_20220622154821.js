@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AdminStudent from './components/pages/AdminStudent';
 import AdminEmployee from './components/pages/AdminEmployee';
 import DisciplineTips from './components/pages/DisciplineTips';
@@ -34,9 +34,10 @@ import VerticalNavBar from './components/VerticalNavBar';
 
  
 function App() {
-
+  const token = localStorage.getItem("token")
+  console.log(token)
   return (
-    <div className="App" style={{paddingLeft: '300px', paddingTop: '50px'}}>
+    <div className="App">
       {/* <p>sdfj</p> 
     <Root role='Student'/>
     <Router>
@@ -47,7 +48,7 @@ function App() {
 
     <BrowserRouter>
 
-      <VerticalNavBar />  
+      {token && <VerticalNavBar />  }
   
 
       

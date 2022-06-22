@@ -34,9 +34,11 @@ import VerticalNavBar from './components/VerticalNavBar';
 
  
 function App() {
-
+  const location = window.location.pathname;
+  // const token = useLocation.getItem("token")
+  console.log(location.pathname)
   return (
-    <div className="App" style={{paddingLeft: '300px', paddingTop: '50px'}}>
+    <div className="App">
       {/* <p>sdfj</p> 
     <Root role='Student'/>
     <Router>
@@ -47,7 +49,7 @@ function App() {
 
     <BrowserRouter>
 
-      <VerticalNavBar />  
+      {location.pathname === '/' && <VerticalNavBar />  }
   
 
       

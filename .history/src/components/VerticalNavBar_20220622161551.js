@@ -102,7 +102,7 @@ export default function VerticalNavBar(props) {
      }
 
     console.log(NavBarItems)
-    return  window.location.pathname !== '/' ? (
+    return  window.location.pathname === '/' ? (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
