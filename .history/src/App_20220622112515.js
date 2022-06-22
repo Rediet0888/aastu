@@ -44,9 +44,8 @@ function App() {
         <Route path='/AdminStudent' component={<AdminStudent/>}></Route>
         <VerticalNavBarEmployee role="Student" />
     </Router>*/}
-
     <BrowserRouter>
-    localStorage.setItem("token", false)
+    localStorage.removeItem("token", null)
     if(localStorage.setItem("token", true)){
       <VerticalNavBar />  
     }

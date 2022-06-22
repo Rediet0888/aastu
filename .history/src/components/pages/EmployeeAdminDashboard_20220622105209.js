@@ -1,10 +1,14 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core/styles'
-import {Paper,Grid} from '@material-ui/core'
-import Report from '../Report';
-import ReportTableStudent from '../ReportTableStudent';
+import { makeStyles } from '@material-ui/core/styles';
+
+import ReportEmployee from '../ReportEmployee';
+import Grid from '@material-ui/core/Grid';
+import { Paper } from '@material-ui/core';
+import ReportTable from '../ReportTable';
+
 
 const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,13 +36,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const StudentAdminDashboard = () => {
-    const classes = useStyles();
+
+const EmployeeAdminDashboard = () => {
+  const classes = useStyles();
     const news = [
         { n: 'red' },
         { n: 'rehd' },
-        { n: 'redj' },]
+        { n: 'redj' },
+    ]
+    
   return (
+    
     <div><main className={classes.content}>
     <div className={classes.toolbar} />
     <Grid xs={12} container spacing={3}>
@@ -46,7 +54,7 @@ const StudentAdminDashboard = () => {
         {news.map((i) => {
             return (
                 <Grid item xs={4}>
-                    <Report />
+                    <ReportEmployee />
                 </Grid>
 
             );
@@ -55,7 +63,7 @@ const StudentAdminDashboard = () => {
         )}
         <Grid item xs={12} >
             <Paper className={classes.paper}>
-                <ReportTableStudent />
+                <ReportTable />
             </Paper>
         </Grid>
 
@@ -66,4 +74,4 @@ const StudentAdminDashboard = () => {
   )
 }
 
-export default StudentAdminDashboard
+export default EmployeeAdminDashboard

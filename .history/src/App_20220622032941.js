@@ -26,7 +26,6 @@ import EmployeeDashboard from './components/pages/EmployeeDashboard';
 import StudentAdminDashboard from './components/pages/StudentAdminDashboard';
 import EmployeeAdminDashboard from './components/pages/EmployeeAdminDashboard';
 import Complain from './components/pages/Complain';
-import VerticalNavBarStudent from './components/VerticalNavBarStudent';
 import VerticalNavBar from './components/VerticalNavBar';
 
 
@@ -44,24 +43,17 @@ function App() {
         <Route path='/AdminStudent' component={<AdminStudent/>}></Route>
         <VerticalNavBarEmployee role="Student" />
     </Router>*/}
-
+    
     <BrowserRouter>
-    localStorage.setItem("token", false)
-    if(localStorage.setItem("token", true)){
-      <VerticalNavBar />  
-    }
-       
-
-      
+  <VerticalNavBar/>
       <Routes>
         <Route path='/' element={ <LoginForm/>}></Route>
         <Route path='/AdminStudent' element={<AdminStudent/>}></Route>
         <Route path='/AdminStudent/Dashboard' element={<StudentAdminDashboard/> }></Route>
         <Route path='/AdminStudent/Profile' element={<Profile/> }></Route>
         <Route path='/AdminStudent/Notification' element={<NotificationOfStudentAdmin/> }></Route>
-        <Route path='/AdminEmployee/ScheduleHearing' element={<ScheduleHearing/> }></Route>
-        <Route path='/AdminStudent/AddScholarshipNews' element={<AddScholarshipNews/> }></Route>
-        <Route path='/AdminStudent/RulesandRegulation' element={<Profile/> }></Route>
+        <Route path='/AdminStudent/Add Scholarship News' element={<AddScholarshipNews/> }></Route>
+        {/* <Route path='/AdminStudent/Rules and Regulation' element={<RulesAndRegulation/> }></Route> */}
         <Route path='/AdminEmployee' element={<AdminEmployee/>}></Route>
         <Route path='/AdminEmployee/Dashboard' element={<EmployeeAdminDashboard/>}></Route>
         <Route path='/AdminEmployee/Profile' element={<Profile/>}></Route>
@@ -78,16 +70,6 @@ function App() {
         <Route path='/DisciplineTips' element={<DisciplineTips/>}></Route>
         <Route path='/IncidentRegForm' element={<IncidentRegForm/>}></Route>
         <Route path='/ScheduleHearing' element={<ScheduleHearing/>}></Route>
-        <Route path='/Profile' element={<Profile/>}></Route>
-        <Route path='/Complain' element={<Complain/>}></Route>
-        <Route path='/StudentAdminDashboard' element={<StudentAdminDashboard/>}></Route>
-        <Route path='/StudentDashboard' element={<StudentDashboard/>}></Route>
-        <Route path='/EmployeeAdminDashboard' element={<EmployeeAdminDashboard/>}></Route>
-        <Route path='/EmployeeDashboard' element={<EmployeeDashboard/>}></Route>
-        <Route path='/NotificationOfStudentAdmin' element={<NotificationOfStudentAdmin/>}></Route>
-        <Route path='/NotificationOfEmployeeAdmin' element={<NotificationOfEmployeeAdmin/>}></Route>
-        <Route path='/NotificationOfStudents' element={<NotificationOfStudents/>}></Route>
-        <Route path='/NotificationOfEmployees' element={<NotificationOfEmployees/>}></Route>
         <Route path='/AddPrefermentNews' element={<AddPrefermentNews/>}></Route>
         <Route path='/AddScholarshipNews' element={<AddScholarshipNews/>}></Route>
         <Route path='/RegisterStudent' element={<RegisterStudent/>}></Route>
@@ -99,8 +81,8 @@ function App() {
         <Route path='/Employee/Complain' element={<Complain/> }></Route>
         <Route path='/Employee/Notification' element={<NotificationOfEmployees/>}></Route>
         <Route path='/Employee/DisciplineTips' element={<DisciplineTips/>}></Route>
-         </Routes>
-            
+           </Routes>
+      
       </BrowserRouter>
          
     </div>

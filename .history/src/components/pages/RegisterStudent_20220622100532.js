@@ -9,8 +9,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import {  useNavigate } from 'react-router-dom';
-
 
 const axios = require('axios');
 
@@ -103,9 +101,6 @@ const [phoneNoErrors, setPhoneNoErrors] = useState({ phoneno: '' })
 
 const [emergencyphoneno, setEmergencyPhoneNo] = useState('')
 const [emergencyphoneNoErrors, setEmergencyPhoneNoErrors] = useState({ emergencyphoneno: '' })
-
-const [registration, setRegistration] = useState('')
-const [registrationError, setRegistrationError] = useState(false)
 
 const [gender, setGender] = useState('')
 
@@ -302,7 +297,6 @@ const handlePasswordChange = (event) => {
 
   const regse={padding: 20, height: '200vh', width:900, margin:"20px auto"}
   const classes = useStyles();
-  const navigate = useNavigate();
 
   const createUser = () => {
     // console.log("sth")
@@ -338,13 +332,6 @@ const handlePasswordChange = (event) => {
             "Authorization": "Bearer ${token}",    }    })
         .then(res => {
           setUser(res.data);
-          if(setUser(res.data)){
-            navigate('components/pages/student')
-          }
-          else{
-            setRegistrationError(true)
-            console.log("unable to register")
-          }
         });
       }
       
@@ -425,10 +412,10 @@ const handlePasswordChange = (event) => {
       </RadioGroup>
     </FormControl>
            </Grid>
-           <Grid xs={3}>
+           <Grid xs={4}>
                <Typography>Birth Date</Typography>
                {/* <Dateofbirth/> */}
-               <form className={classes.container} noValidate>
+               <form noValidate>
       <TextField
        onChange={e => {
         setDateBirth(e.target.value)

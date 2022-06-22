@@ -46,7 +46,7 @@ function App() {
     </Router>*/}
 
     <BrowserRouter>
-    localStorage.setItem("token", false)
+    let token = null
     if(localStorage.setItem("token", true)){
       <VerticalNavBar />  
     }

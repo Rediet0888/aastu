@@ -44,14 +44,8 @@ function App() {
         <Route path='/AdminStudent' component={<AdminStudent/>}></Route>
         <VerticalNavBarEmployee role="Student" />
     </Router>*/}
-
     <BrowserRouter>
-    localStorage.setItem("token", false)
-    if(localStorage.setItem("token", true)){
-      <VerticalNavBar />  
-    }
-       
-
+    {/* <VerticalNavBar /> */}
       
       <Routes>
         <Route path='/' element={ <LoginForm/>}></Route>

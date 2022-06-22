@@ -5,7 +5,7 @@ import VerticalNavBarEmployee from '../VerticalNavBarEmployee'
 const Employee = () => {
   return (
     <div>
-  
+       <VerticalNavBarEmployee /> 
        
         
     </div>

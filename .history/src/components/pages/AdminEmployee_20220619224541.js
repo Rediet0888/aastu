@@ -11,7 +11,8 @@ function AdminEmployee() {
  
   return (
     <div>
-  
+    
+    <VerticalNavBarAdminEmployee/>
       
     </div>
   );

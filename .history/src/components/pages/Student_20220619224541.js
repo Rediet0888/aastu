@@ -6,7 +6,7 @@ import StudentDashboard from './StudentDashboard';
 const Student = () => {
   return (
     <div>
-      
+      <VerticalNavBarStudent />
         
         
     </div>

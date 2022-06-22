@@ -72,7 +72,6 @@ const handleEmailChange = (event) => {
       const baseURL = 'http://localhost:3000/users/login'
 
       console.log("hiiii")
-      
       const body = {
         email: email,
         password: password
@@ -110,10 +109,7 @@ const handleEmailChange = (event) => {
                 <Grid align='center'>
                      <Avatar style={avatarStyle}><img src='/image/logo.jpg' alt=' ' width='40px'/></Avatar>
                     <h2>Sign In</h2>
-                    <Typography color={loginErrors ? 'red' : 'green'} variant='body2'>
-              {loginErrors ? 'Please enter valid credentials' : 'Please sign-in to your account'}
-            </Typography> 
-                    {/* <p>{ loginErrors ? "enter valid credentials" : ""}</p> */}
+                    <p>{ loginErrors ? "enter valid credentials" : ""}</p>
                 </Grid>
                 
                 <Grid className='user'>

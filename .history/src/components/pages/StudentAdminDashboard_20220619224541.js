@@ -2,7 +2,7 @@ import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import {Paper,Grid} from '@material-ui/core'
 import Report from '../Report';
-import ReportTableStudent from '../ReportTableStudent';
+import ReportTable from '../ReportTable';
 
 const drawerWidth = 240;
 
@@ -55,7 +55,7 @@ const StudentAdminDashboard = () => {
         )}
         <Grid item xs={12} >
             <Paper className={classes.paper}>
-                <ReportTableStudent />
+                <ReportTable />
             </Paper>
         </Grid>
 

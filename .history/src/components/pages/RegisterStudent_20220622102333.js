@@ -104,9 +104,6 @@ const [phoneNoErrors, setPhoneNoErrors] = useState({ phoneno: '' })
 const [emergencyphoneno, setEmergencyPhoneNo] = useState('')
 const [emergencyphoneNoErrors, setEmergencyPhoneNoErrors] = useState({ emergencyphoneno: '' })
 
-const [registration, setRegistration] = useState('')
-const [registrationError, setRegistrationError] = useState(false)
-
 const [gender, setGender] = useState('')
 
 const [role_type, setRoleType] = useState('')
@@ -302,7 +299,6 @@ const handlePasswordChange = (event) => {
 
   const regse={padding: 20, height: '200vh', width:900, margin:"20px auto"}
   const classes = useStyles();
-  const navigate = useNavigate();
 
   const createUser = () => {
     // console.log("sth")

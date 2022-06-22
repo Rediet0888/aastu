@@ -9,8 +9,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import {  useNavigate } from 'react-router-dom';
-
 
 const axios = require('axios');
 
@@ -104,12 +102,7 @@ const [phoneNoErrors, setPhoneNoErrors] = useState({ phoneno: '' })
 const [emergencyphoneno, setEmergencyPhoneNo] = useState('')
 const [emergencyphoneNoErrors, setEmergencyPhoneNoErrors] = useState({ emergencyphoneno: '' })
 
-const [registration, setRegistration] = useState('')
-const [registrationError, setRegistrationError] = useState(false)
-
 const [gender, setGender] = useState('')
-
-const [role_type, setRoleType] = useState('')
 
 const [wereda, setWereda] = useState('')
 
@@ -302,7 +295,6 @@ const handlePasswordChange = (event) => {
 
   const regse={padding: 20, height: '200vh', width:900, margin:"20px auto"}
   const classes = useStyles();
-  const navigate = useNavigate();
 
   const createUser = () => {
     // console.log("sth")
@@ -338,13 +330,6 @@ const handlePasswordChange = (event) => {
             "Authorization": "Bearer ${token}",    }    })
         .then(res => {
           setUser(res.data);
-          if(setUser(res.data)){
-            navigate('components/pages/student')
-          }
-          else{
-            setRegistrationError(true)
-            console.log("unable to register")
-          }
         });
       }
       
@@ -393,9 +378,8 @@ const handlePasswordChange = (event) => {
             <Grid className='divregid'>
        <Divider variant="middle" />
        </Grid>
-       <Grid container xs={12}>
-       <Grid xs={4} className='reggender'>
-           {/* <Grid xs={6}> */}
+       <Grid xs={12} className='reggender'>
+           <Grid xs={6}>
                {/* <Gender/> */}
                <FormControl component="fieldset">
       <FormLabel component="legend">Gender</FormLabel>
@@ -407,25 +391,8 @@ const handlePasswordChange = (event) => {
         <FormControlLabel value="male" control={<StyledRadio />} label="Male" />
       </RadioGroup>
     </FormControl>
-           {/* </Grid> */}
            </Grid>
-           {/* <Grid xs={8}> */}
-           <Grid xs={4}>
-               {/* <Role Type/> */}
-               <FormControl component="fieldset">
-      <FormLabel component="legend">Role Type</FormLabel>
-      <RadioGroup onChange={e => {
-                      setRoleType(e.target.value)
-                    }}
-                    value={role_type} defaultValue="Student" aria-label="Role-Type" name="customized-radios">
-        <FormControlLabel value="Student" control={<StyledRadio />} label="Student" />
-        <FormControlLabel value="Employee" control={<StyledRadio />} label="Employee" />
-        <FormControlLabel value="Employee-Admin" control={<StyledRadio />} label="Employee-Admin" />
-        <FormControlLabel value="Student-Admin" control={<StyledRadio />} label="Student-Admin" />
-      </RadioGroup>
-    </FormControl>
-           </Grid>
-           <Grid xs={3}>
+           <Grid xs={6}>
                <Typography>Birth Date</Typography>
                {/* <Dateofbirth/> */}
                <form className={classes.container} noValidate>
@@ -445,8 +412,8 @@ const handlePasswordChange = (event) => {
         }}
       />
     </form>
-           {/* </Grid> */}
            </Grid>
+           
        </Grid>
        <Grid className='divreggender'>
        <Divider variant="middle" />
