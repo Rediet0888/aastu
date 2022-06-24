@@ -12,6 +12,9 @@ import '../DisciplineTips.css'
 const useStyles = makeStyles({
   root: {
     maxWidth: 300,
+  },
+  media: {
+     maxHeight: 200,
   }
 });
 
@@ -28,12 +31,12 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={require("../../images/Aplus.jpg")}
+          image={require("../../images/A+.jpg")}
           title="Tip1"
           component="img"
         />
         {/* <img src='../../images/plan.jpg'/> */}
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Tips for getting A's
           </Typography>
@@ -56,7 +59,7 @@ const DisciplineTips = () => {
           title="Tip2"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Time management skills
           </Typography>
@@ -79,7 +82,7 @@ const DisciplineTips = () => {
           title="Tip3"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Are you procastinating?
           </Typography>
@@ -105,7 +108,7 @@ const DisciplineTips = () => {
           title="Tip4"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Communication skills
           </Typography>
@@ -128,7 +131,7 @@ const DisciplineTips = () => {
           title="Tip5"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Is peer pressure giving you a headache?
           </Typography>
@@ -151,7 +154,7 @@ const DisciplineTips = () => {
           title="Tip6"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           For getting rid of drug addictions you might try:-
           </Typography>
@@ -172,11 +175,11 @@ const DisciplineTips = () => {
         <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={require("../../images/hobby.jpg")}
+          image={require("../../images/hobbies.jpg")}
           title="Tip7"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           For developing hobbies
           </Typography>
@@ -197,7 +200,7 @@ const DisciplineTips = () => {
           title="Tip8"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Healthy lifestyle tips
           </Typography>
@@ -221,7 +224,7 @@ const DisciplineTips = () => {
           title="Tip9"
           component="img"
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
           Tips for sucessful career
           </Typography>

@@ -9,22 +9,62 @@ const AddPrefermentNews = () => {
 
 
 
-    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [link, setLink] = useState("");
+    const[descriptionErrors, setDescriptionErrors] =useState("");
+
+    const [datetime, setDateTime] = useState('')
+
+    const disableButton = 
+ descriptionErrors?.description ||
+ !description 
+   ? true
+   : false
+
+    const handleDescriptionChange = (event) => {
+      const {
+        target: { value },
+      } = event;
+      setDescriptionErrors({ description: "" });
+      setDescription(value);
+    
+      if (value === "") {
+        setDescriptionErrors({ description: "This field cannot be empty" });
+      }
+    };
 
     const addPreferment =() =>{
         const data = {
-            title: title,
-            description: description,
-            link: link
+            announcement_type: "Preferement",
+            detail: description ,
+            file: pdfData,
+            date: datetime,
+            approved:"AASTU Disciplinary" ,
+            admin_id: 1
         }
-        axios.post('http://localhost:5000/api/preferment/', data).then(response => {
+        axios.post('http://localhost:3000/api/preferment/', data).then(response => {
             console.log(response.data);
         }
         ).catch(error => {});
     }
-
+    const [pdfData, setPdfData] = useState('')
+    const onChange = e => {
+      const files = e.target.files;
+      const file = files[0];
+      getBase64(file);
+    };
+    
+    const onLoad = fileString => {
+      setPdfData(fileString);
+      console.log('kkkk', fileString);
+    };
+    
+    const getBase64 = file => {
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        onLoad(reader.result);
+      };
+    };
   return (
     <Grid>
         <Paper elevation={10} style={schpre}>
@@ -32,13 +72,7 @@ const AddPrefermentNews = () => {
                 <h1>Add Preferment News</h1>
             </Grid>
            
-            <Grid className='newstitle' xs={12}>
-                <Grid xs={2}>
-                <Typography>Title</Typography>
-                </Grid>
-                <Grid xs={10}>
-                <TextField value={title} onChange={e => {setTitle(e.target.value)}} id="outlined-basic" label="News Title" variant="outlined" /> 
-                </Grid>
+            <Grid className='newstitle' xs={12}>   
             </Grid>
             <Grid className='detailnews' xs={12}>
                 <Grid xs={2}>
@@ -46,23 +80,45 @@ const AddPrefermentNews = () => {
                 </Grid>
                 <Grid xs={10}>
                 <TextField
-                value={description} onChange={e => {setDescription(e.target.value)}}
+                value={description} 
          id="outlined-textarea"
           label="Description of the news"
           placeholder="Placeholder"
            multiline
-         variant="outlined"
+         variant="outlined" size="small" error={Boolean(descriptionErrors?.description)}
+         helperText={descriptionErrors?.description} onChange={handleDescriptionChange}
       />
       </Grid>
             </Grid>
             <Grid className='newslink' xs={12}>
                 <Grid xs={2}>
-                <Typography>Links</Typography></Grid>
-                <Grid xs={10}>
-                <TextField id='outlined-basic' value={link} onChange={e => {setLink(e.target.value)}} label="Link" variant='outlined'/></Grid>
-            </Grid>
+                <form>
+        <input type="file" onChange={onChange} size="small" value = {pdfData} accept="application/pdf"/>
+      </form>                </Grid>
+      </Grid>
+      <Grid>
+      <form  noValidate>
+              <TextField
+              variant="outlined"
+                id="datetime-local"
+                label="Annnouncement Time"
+                type="datetime-local"
+                defaultValue="2017-05-24T10:30"
+                size ="small"
+                //className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                onChange={e => {
+                  setDateTime(e.target.value)
+                }}
+                value={datetime} 
+              />
+            </form>
+      </Grid>
+
             <Grid className='postbutton'>
-            <Button variant="contained" onClick={addPreferment} color="primary" >Post</Button>
+            <Button variant="contained" disabled={disableButton} onClick={addPreferment} color="primary" >Post</Button>
             </Grid>
         </Paper>
     </Grid>

@@ -7,6 +7,7 @@
     padding: 10px;
 }
 .datetimesch{
+    display: flex;
     padding: 25px;
 }
 .div5{
@@ -15,7 +16,7 @@
 .div4{
     padding: 1px;
 }
-.judge12{
+.duratime{
     display:flex;
     padding: 10px;
 }
@@ -31,5 +32,5 @@
     padding: 10px;
 }
 .div6{
-    padding: 1px;
+    padding: 10px;
 }

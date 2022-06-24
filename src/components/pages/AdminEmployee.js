@@ -12,7 +12,7 @@ function AdminEmployee() {
   return (
     <div>
   
-      
+      <EmployeeAdminDashboard/>
     </div>
   );
 }

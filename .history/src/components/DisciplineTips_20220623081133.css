@@ -1,0 +1,22 @@
+.tips{
+    display: flex;
+    padding-top: 60px;
+   padding-left: 25px;
+    
+}
+
+.tipstwo{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.tipsthree{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.tipsfour{
+    display: flex;
+    padding-top: 20px;
+    /*padding-left: 250px;*/
+}
