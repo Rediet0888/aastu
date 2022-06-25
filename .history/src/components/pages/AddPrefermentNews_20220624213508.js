@@ -43,7 +43,7 @@ const AddPrefermentNews = () => {
             approved:email ,
             admin_id: user
         }
-        axios.post('http://localhost:3000/announcement/create', data).then(response => {
+        axios.post('http://localhost:3000/api/announcements/create', data).then(response => {
             console.log(response.data);
         }
         ).catch(error => {});

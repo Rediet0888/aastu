@@ -103,7 +103,7 @@ const handleCaseNameChange = (event) => {
 
 
     const addSchedule = () => {
-      let user = window.localStorage.getItem("userId")
+      let user = window.localStorage.getItem("userId", res.data.userId)
   
       const data = {
 

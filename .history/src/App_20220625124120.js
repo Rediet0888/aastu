@@ -22,7 +22,7 @@ import RegisterStudent from './components/pages/RegisterStudent';
 import RegisterEmployee from './components/pages/RegisterEmployee';
 
 import StudentDashboard from './components/pages/StudentDashboard';
-import RulesAndRegulation from '../src/data/files/Rules.pdf';
+import RulesAndRegulation from '../src/data/files/Rules and Regulation for students';
 import EmployeeDashboard from './components/pages/EmployeeDashboard';
 import StudentAdminDashboard from './components/pages/StudentAdminDashboard';
 import EmployeeAdminDashboard from './components/pages/EmployeeAdminDashboard';

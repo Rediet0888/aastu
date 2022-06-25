@@ -67,50 +67,35 @@
 //    </Grid>
 //  );
 // }
-// import { DataGrid } from "@mui/x-data-grid";
-// import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-// import styled from "styled-components";
-// import { Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
-// import axios from 'axios'
+import { DataGrid } from "@mui/x-data-grid";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from 'axios'
 
 
-// export default function ReportTableStudent() {
-//   const [data, setData] = useState([]);
+export default function ReportTableStudent() {
+  const [data, setData] = useState([]);
 
 
-//   useEffect(() => {
-//     axios.get("http://localhost:3000/user")
-//       .then((response) => response.json())
-//       .then((json) => setData(json));
-//   }, []);
+  useEffect(() => {
+    axios.get("http://localhost:3000/user")
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }, []);
 
-//   const column = [
-//     {field: "id", headerName: "User ID", width: 170 },
-//     {field: "first_name", headerName: "First Name", width: 170},
-//     {field: "middle_name", headerName: "Middle Name", width: 170},
-//     {field: "last_name", headerName: "Last Name", width: 170},    
-//     {field: "email", headerName: "Email"},
-//     {field: "phone_no", headerName: "Phone Number", width: 170},
-//     {field: "year", headerName: "Year", width: 170},
-//     {field: "department", headerName: "Department", width: 170},
+  const column = [
+    {field: "id", headerName: "User ID", width: 170 },
+    {field: "first_name", headerName: "First Name", width: 170},
+    {field: "middle_name", headerName: "Middle Name", width: 170},
+    {field: "last_name", headerName: "Last Name", width: 170},    
+    {field: "email", headerName: "Email"},
+    {field: "phone_no", headerName: "Phone Number", width: 170},
+    {field: "year", headerName: "Year", width: 170},
+    {field: "department", headerName: "Department", width: 170},
 
   
-//   ];
-//   return (
-    
-//     <Div >
-//       <DataGrid
-//         rows={data}
-//         disableSelectionOnClick
-//         columns={column}
-//         pageSize={8}
-//         rowsPerPageOptions={[5]}
-//         checkboxSelection
-//         loading={!data.length}
-//       />
-//     </Div>
-//   );
+  ]
 
-
-// }
+}

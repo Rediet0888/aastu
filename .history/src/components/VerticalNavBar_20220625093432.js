@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import clsx from 'clsx';
 import MenuIcon from '@material-ui/icons/Menu';
-//import Rules from "../files/Rules and Regulation for students.pdf"
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -96,12 +95,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-   account: {
-     flex: 1,
-     flexDirection: 'row',
-     justifyContent: 'flex-end',
-     float: 'left'
-  },
+//   account: {
+//     flex: 1,
+//     flexDirection: 'row',
+//     justifyContent: 'flex-end',
+//   },
 }));
 
 export default function VerticalNavBar(props) {
@@ -128,7 +126,7 @@ export default function VerticalNavBar(props) {
     { id: 3, name: 'Notification', icon: NotificationsOutlinedIcon, path:"/StudentDashboard" },
     { id: 4, name: 'ScheduleHearing', icon: AccessTimeIcon , path:"/ScheduleHearing"},
     { id: 5, name: 'AddScholarshipNews', icon: NoteAddIcon , path:"/AddScholarshipNews"},
-    { id: 6, name: 'Rules&Regulation', icon: DescriptionIcon , path:"/RulesAndRegulation"},
+    { id: 6, name: 'Rules&Regulation', icon: DescriptionIcon , path:"/StudentDashboard"},
     { id: 7,name: 'CreateAccusation', icon: NoteAddIcon , path:"/IncidentRegForm"},
     { id: 8,name: 'AddPrefermentNews', icon: NoteAddIcon , path:"/AddPrefermentNews"},
     { id: 9,name: 'Complain', icon: LiveHelpIcon, path:"/Complain" },
@@ -143,7 +141,7 @@ export default function VerticalNavBar(props) {
        { id: 3, name: 'Notification', icon: NotificationsOutlinedIcon, path:"/NotificationOfStudentAdmin" },
         { id: 4, name: 'ScheduleHearing', icon: AccessTimeIcon, path:"/ScheduleHearing" },
         { id: 5, name: 'AddScholarshipNews', icon: NoteAddIcon , path:"/AddScholarshipNews" },
-         { id: 6, name: 'Rules&regulation', icon: DescriptionIcon , path:"/RulesAndRegulation"},
+         { id: 6, name: 'Rules&regulation', icon: DescriptionIcon , path:"/StudentDashboard"},
         { id: 10,name: 'Students', icon: LiveHelpIcon, path:"/Student" }
 
         ]
@@ -153,7 +151,7 @@ export default function VerticalNavBar(props) {
        { id: 3,name: 'Notification', icon: NotificationsOutlinedIcon, path:"/NotificationOfEmployeeAdmin" },
        { id: 4,name: 'ScheduleHearing', icon: AccessTimeIcon , path:"/ScheduleHearing"},
        { id: 8,name: 'AddPrefermentNews', icon: NoteAddIcon , path:"/AddPrefermentNews"},
-       { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon , path:"/RulesAndRegulation"},
+       { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon , path:"/NotificationOfStudentAdmin"},
       { id: 11,name: 'Employees', icon: LiveHelpIcon, path:"/Employee" },
 
       ]
@@ -163,14 +161,14 @@ export default function VerticalNavBar(props) {
          { id: 3,name: 'Notification', icon: NotificationsOutlinedIcon, path:"/NotificationOfStudents" },
          { id: 9,name: 'Complain', icon: LiveHelpIcon, path:"/Complain" },
          { id: 5,name: 'SelfDisciplineTips', icon: EmojiObjectsIcon,path:"/DisciplineTips"},
-         { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon, path:"/RulesAndRegulation" },]
+         { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon, path:"/NotificationOfStudentAdmin" },]
      } else if (role === "Employee" ) {
          NavBarItems = [{id: 1, name: 'Dashboard', icon: DashboardIcon, path:"/EmployeeDashboard" },
         { id: 2,name: 'Profile', icon: AccountCircleIcon , path:"/Profile"},
         { id: 3,name: 'Notification', icon: NotificationsOutlinedIcon , path:"/NotificationOfEmployees"},
         { id: 9,name: 'Complain', icon: LiveHelpIcon , path:"/Complain"},
         { id: 5,name: 'SelfDisciplineTips', icon: EmojiObjectsIcon , path:"/DisciplineTips"},
-        { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon , path:"/RulesAndRegulation"},
+        { id: 6,name: 'Rules&Regulation', icon: DescriptionIcon , path:"/NotificationOfStudentAdmin"},
         { id: 7,name: 'CreateAccusation', icon: NoteAddIcon , path:"/IncidentRegForm"},]
      }
 
@@ -199,14 +197,12 @@ export default function VerticalNavBar(props) {
       >
         <MenuIcon />
         </IconButton>
-
-
-        
-        <div className='classes.account'>
+<div className='classes.account'>
         <AccountCircle />
         <h>{role}</h>
 </div>
-</div>
+
+        </div>
       )}
       {/* //here goes the profile */}
         </Toolbar>
