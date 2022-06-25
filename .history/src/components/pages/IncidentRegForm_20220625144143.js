@@ -120,7 +120,7 @@ const IncidentRegForm = () => {
       if(setAccusation(res.data)){
         alert("Accusation Registered Succesfully")
         console.log("Accusation registered successfully")
-        // {handleNotification}
+        {handleNotification}
         navigate('components/pages/admindashboard')
       }
       else{
