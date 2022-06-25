@@ -6,13 +6,13 @@ const NotificationOfStudents = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const baseURL = 'http://localhost:3000/notification';
     axios
-      .get(baseURL)
+      .get('http://localhost:3000/notification')
       .then((response) => response.data)
       .then((data) => {
         setNotifications(data.post);
       });
+    alert('Notifications loaded successfully');
   }, []);
 
   const notifyStyle = {
@@ -21,6 +21,7 @@ const NotificationOfStudents = () => {
     width: 200,
     margin: '20px auto',
   };
+
   return notifications.map((notification) => (
     <div style={{ marginTop: 100 }} key={notification.id}>
       <Paper elevation={10} style={notifyStyle}>
