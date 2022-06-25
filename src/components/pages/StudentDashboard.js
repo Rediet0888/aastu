@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import NewsComponent from '../NewsComponent';
 
 const drawerWidth = 240;
 
@@ -32,9 +33,9 @@ const StudentDashboard = () => {
   const classes = useStyles();
   const news = [{ n: 'red' }, { n: 'rehd' }, { n: 'redj' }];
   return (
-    <div>
+    <div style={{ marginTop: 150 }}>
       <main className={classes.content}>
-        <h3>Hello Student</h3>
+        <NewsComponent />
         <div className={classes.toolbar} />
       </main>
     </div>

@@ -231,7 +231,12 @@ export default function VerticalNavBar(props) {
     ];
   } else if (role === 'Student') {
     NavBarItems = [
-      { id: 1, name: 'Dashboard', icon: DashboardIcon, path: '/t' },
+      {
+        id: 1,
+        name: 'Dashboard',
+        icon: DashboardIcon,
+        path: '/StudentDashboard',
+      },
       { id: 2, name: 'Profile', icon: AccountCircleIcon, path: '/Profile' },
       {
         id: 3,
