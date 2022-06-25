@@ -12,7 +12,6 @@ const NotificationOfStudents = () => {
       .then((data) => {
         setNotifications(data.post);
       });
-    alert('Notifications loaded successfully');
   }, []);
 
   const notifyStyle = {

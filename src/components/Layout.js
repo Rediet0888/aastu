@@ -1,21 +1,16 @@
-import React from 'react'
-import styled from "styled-components"
-import { useState } from 'react';
+import styled from 'styled-components';
 import VerticalNavBar from './VerticalNavBar';
 
-
 const Grid = styled.div`
-
-display: grid;
-grid:
-  "nav header" min-content
-  "nav main" 1fr / min-content 1fr;
-min-height: 100vh;
-
+  display: grid;
+  grid:
+    'nav header' min-content
+    'nav main' 1fr / min-content 1fr;
+  min-height: 100vh;
 `;
 
 const GridNav = styled.nav`
-grid-area: nav;
+  grid-area: nav;
 `;
 
 const GridHeader = styled.header`
@@ -25,16 +20,17 @@ const GridHeader = styled.header`
 `;
 
 const GridMain = styled.main`
-  grid-area: main;  
+  grid-area: main;
 `;
 
-export default function Layout({children, ...rest}) {
-  
+export default function Layout({ children, ...rest }) {
   return (
     <Grid {...rest}>
-        <GridNav><VerticalNavBar/></GridNav>
-        <GridHeader><h1>sumeya</h1></GridHeader>
-        <GridMain>{children}</GridMain>
+      <GridNav>
+        <VerticalNavBar />
+      </GridNav>
+      <GridHeader />
+      <GridMain>{children}</GridMain>
     </Grid>
-  )
+  );
 }
