@@ -88,10 +88,7 @@ const IncidentRegForm = () => {
 
   const navigate = useNavigate();
  
-  const handleNotification = () =>{
-    setAccusation(true);
-  
-  }
+ 
 
   const IncidentRegistration = () =>{
    
@@ -118,9 +115,10 @@ const IncidentRegForm = () => {
     .then(res => {
       setAccusation(res.data);
       if(setAccusation(res.data)){
+        setAccusation(true);
         alert("Accusation Registered Succesfully")
         console.log("Accusation registered successfully")
-        // {handleNotification}
+        
         navigate('components/pages/admindashboard')
       }
       else{
