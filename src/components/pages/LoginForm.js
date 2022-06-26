@@ -3,13 +3,14 @@ import {
   Button,
   Grid,
   Link,
+  Modal,
   Paper,
   TextField,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
 // import Alert from '@material-ui/lab/Alert';
-
+import { makeStyles } from '@material-ui/core/styles';
 import { useState } from 'react';
 
 // import ChooseUser from '../ChooseUser';
@@ -17,22 +18,47 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../LoginForm.css';
 
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50 + rand();
+  const left = 50 + rand();
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
 const LoginForm = (props) => {
-  let history = useNavigate();
-
+  const classes = useStyles();
+  const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
-
-  // const handleClick = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway' ) {
-  //     return;
-  //   }
-
-  //   setOpen(false);
-  // };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title">Login Failed</h2>
+      <p id="simple-modal-description">
+        Invalid username and password combination
+      </p>
+      <button onClick={() => setOpen(false)}>OK</button>
+    </div>
+  );
 
   const [email, setEmail] = useState('');
   const [emailErrors, setEmailErrors] = useState({ email: '' });
@@ -109,40 +135,38 @@ const LoginForm = (props) => {
         },
       })
       .then((res) => {
-        console.log('success:', res);
         if (res.data.message === 'Authentication Successful') {
           window.localStorage.setItem('token', res.data.token);
           window.localStorage.setItem('role_type', res.data.role_type);
           window.localStorage.setItem('userId', res.data.userId);
           window.localStorage.setItem('username', res.data.email);
-          //  if( res.data.role_type === "Student"){
           navigate('/VerticalNavBar');
-          //  }
-          //  else if(res.data.role_type === "StudentAdmin"){
-          //  navigate('/VerticalNavBar')
-          //  }else if(res.data.role_type === "Admin" || res.data.role_type === "admin"){
-          //   navigate('/VerticalNavBar')
-          //  }else if(res.data.role_type === "EmployeeAdmin"){
-          //   navigate('/VerticalNavBar')
-          //  }
           console.log('you are right' + res.data.message);
         } else {
           setLoginErrors(true);
           console.log('Invalid Credentials');
           alert('Invalid Credentials');
-          //   <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          //   {/* <Alert onClose={handleClose} severity="error">
-          //     Invalid Credentials please try again!
-          //   </Alert> */}
-          // </Snackbar>
           navigate('/');
           console.log('errorrrr' + res.data.message);
         }
+      })
+      .catch((error) => {
+        // alert('Invalid credentials');
+        setOpen(true);
       });
   };
 
   return (
     <Grid spacing={5}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
